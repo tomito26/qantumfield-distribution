@@ -36,7 +36,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between absolute w-full  bg-transparent  items-center  flex-col md:flex-row  h-[92px] px-4 md:px-[60px] lg:px-[80px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
+    <nav className="flex justify-between absolute w-full mt-8  bg-transparent  items-center  flex-col md:flex-row  h-[92px] px-4 md:px-[60px] lg:px-[80px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
       <div className="flex justify-between h-full w-full items-center">
         <div className="relative h-[80px] w-[160px] md:h-[60px] md:w-[180px]">
           <Image
@@ -96,7 +96,7 @@ const Navbar = () => {
                     />
                   </div>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-[200px] rounded-t-none -mt-1 left-0 -bottom-32 bg-white mt-5">
+                <DropdownMenuContent className="w-[200px] rounded-t-none  left-0 -bottom-32 bg-white mt-5">
                   {subLink.map((item) =>
                     item.link ? ( // Check if item.link exists
                       <DropdownMenuGroup key={item.title}>
