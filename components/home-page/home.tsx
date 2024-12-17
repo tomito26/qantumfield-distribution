@@ -38,7 +38,7 @@ const Home = () => {
       description:
         "Sorting and recycling services for paper, plastic, glass, and metals.",
       image:
-        "/assets/The-Benefits-of-Waste-Collection-Services-for-Your-Business-scaled.jpg",
+        "/assets/Municipal_recycling_facilities,_Montgomery_County,_MD._2007,_Credit_USEPA_(14410405277).jpg",
       link: "/recycling-solutions",
     },
     {
@@ -46,16 +46,14 @@ const Home = () => {
       title: "Hazardous Waste Management",
       description:
         "Safe handling, transportation, and disposal of hazardous materials.",
-      image:
-        "/assets/The-Benefits-of-Waste-Collection-Services-for-Your-Business-scaled.jpg",
+      image: "/assets/ecologist-standing-field-with-garbage-biohazard-sign.jpg",
       link: "/hazardous-waste-management",
     },
     {
       id: 4,
       title: "Composting and Organic Waste Solutions",
       description: "Converting food and organic waste into compost",
-      image:
-        "/assets/The-Benefits-of-Waste-Collection-Services-for-Your-Business-scaled.jpg",
+      image: "/assets/whatsapp_image_2021-08-31_at_12.35.29_pm_10_1.jpeg",
       link: "/composting-organic-waste",
     },
   ];
@@ -148,7 +146,7 @@ const Home = () => {
             <h1 className="text-6xl font-bold text-white w-8/12 mb-6">
               Innovative Solutions for a Cleaner Planet
             </h1>
-            <p className="text-white text-base">
+            <p className="text-white text-base w-7/12">
               We provide innovative waste management services that reduce
               environmental impact and create a cleaner future.
             </p>
@@ -204,7 +202,7 @@ const Home = () => {
         </div>
       </div>
       {/* {our services}  */}
-      <div className="bg-[#f4f4f4] px-4 pt-20 pb-28 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
+      <div className="bg-[#f4f4f4] px-4 pt-20 pb-40 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
         <h1 className="text-sm uppercase text-center font-bold text-[#0C4E1A]">
           Our Services
         </h1>
@@ -221,7 +219,7 @@ const Home = () => {
                   fill
                   className="absolute object-cover rounded-md"
                 />
-                <div className="px-4 py-3 bg-white z-10 absolute border-b-4 border-b-[#0C4E1A]  -bottom-8 right-0 h-[200px] w-[248px] rounded-tl-md rounded-br-md">
+                <div className="px-4 py-3 bg-white z-10 absolute border-b-4 border-b-[#0C4E1A] hover:shadow-md  -bottom-24 right-2 h-[200px] w-[248px] rounded-tl-md rounded-br-md">
                   <h2 className="text-base font-bold text-monochrome hover:text-[#0C4E1A] mb-2">
                     {service.title}
                   </h2>
@@ -362,7 +360,7 @@ const Home = () => {
             {comments.map((comment) => (
               <SwiperSlide key={comment.id} className="pb-16 pt-12">
                 <div
-                  className="flex items-center gap-6 p-6 bg-white border-b-4 border-[#0C4E1A] rounded-sm"
+                  className="flex items-center gap-6 p-6 bg-white border-b-4 h-[320px] border-[#0C4E1A] rounded-sm"
                   key={comment.id}
                 >
                   <div className="h-[80px] w-[80px] rounded-full relative shrink-0">
@@ -398,16 +396,13 @@ const Home = () => {
           className="absolute object-cover"
         />
         <div className="h-full w-full z-10 flex justify-center items-center flex-col  bg-[#0C4E1A]/80 py-24 px-4 md:px-[40px] lg:px-[60px] xl:px-[60px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
-          <h1 className="text-6xl text-center text-white font-bold mb-6">
+          <h1 className="text-6xl text-center text-white font-bold mb-10">
             Ready to Optimize Your Waste Management? Contact Us Now!
           </h1>
           <Button className="bg-white text-base  font-medium text-[#0C4E1A] hover:bg-white/80">
             Contact Us Now
           </Button>
         </div>
-      </div>
-      <div className="py-24 px-4 md:px-[40px] lg:px-[60px] xl:px-[60px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
-
       </div>
     </div>
   );
