@@ -63,7 +63,7 @@ const Navbar = () => {
             <li key={title} className="inline-flex items-center h-full">
               <Link
                 href={link}
-                className={cn("text-base font-medium hover:text-[#0C4E1A]  md:text-white hover:border-b-2 border-b-white text-center  px-1", pathname === link && "border-b-2 text-[#0C4E1A]")}
+                className={cn("text-base font-medium hover:text-[#0C4E1A] md:hover:text-white/90  md:text-white hover:border-b-2 border-b-white text-center  px-1", pathname === link && "border-b-2 text-[#0C4E1A]")}
                 onClick={() => handleLinkClick()}
               >
                 {title}
@@ -102,7 +102,7 @@ const Navbar = () => {
                       <DropdownMenuGroup key={item.title}>
                         <Link href={item.link} className="w-full" onClick={() =>handleLinkClick()}>
                           <DropdownMenuItem className="cursor-pointer group">
-                            <span className="text-[14px] font-[500] text-[#0C4E1A] ">
+                            <span className="text-[14px] font-[500] text-body-gray hover:text-[#0C4E1A]">
                               {item.title}
                             </span>
                           </DropdownMenuItem>

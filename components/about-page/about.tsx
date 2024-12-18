@@ -1,12 +1,13 @@
 "use client"
 import { items, our_partners } from "@/lib/constants";
-import { BadgeCheck, Building2, ChevronRight, CircleCheck, Users } from "lucide-react";
+import { BadgeCheck, Building2, ChevronRight, CircleCheck, Mail, MapPin, Phone, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
+import { ContactUsForm } from "../forms/contact-us-form";
 
 const About = () => {
   return (
@@ -20,8 +21,8 @@ const About = () => {
         />
         <div className="bg-[#0C4E1A]/70 h-full flex items-center w-full z-10 absolute px-4 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
           <div>
-            <h1 className="text-6xl font-bold text-white mb-6">About Us</h1>
-            <p className="text-white flex text-base w-7/12">
+            <h1 className="md:text-6xl text-3xl font-bold text-white mb-6">About Us</h1>
+            <p className="text-white flex text-base md:w-7/12">
               <Link
                 href="/"
                 className="text-white hover:text-green-950 text-base"
@@ -34,12 +35,12 @@ const About = () => {
         </div>
       </div>
       {/* about us  */}
-      <div className="flex flex-row-reverse justify-between items-center gap-10 px-4 pt-20 pb-24 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
+      <div className="flex flex-col md:flex-row-reverse justify-between items-center gap-10 px-4 pt-20 pb-24 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
         <div className="flex-1">
-          <h1 className="text-sm font-bold text-[#0C4E1A] uppercase">
+          <h1 className="md:text-sm text-xs font-bold text-[#0C4E1A] uppercase">
             Who We are
           </h1>
-          <h2 className="text-6xl font-bold text-monochrome my-3">
+          <h2 className="md:text-6xl text-3xl font-bold text-monochrome my-3">
             Advancing Sustainability in Waste Services
           </h2>
           <p className="text-base mb-4">
@@ -49,7 +50,7 @@ const About = () => {
             that contribute to a healthier planet while empowering businesses,
             communities, and individuals to embrace eco-friendly solutions.
           </p>
-          <div className="grid grid-cols-2 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 ">
             {items.map((item, index) => (
               <div className="flex items-center gap-3" key={index}>
                 <CircleCheck className="h-5 w-5 stroke-[#0C4E1A]" />
@@ -58,7 +59,7 @@ const About = () => {
             ))}
           </div>
         </div>
-        <div className="h-[380px] w-[360px] relative flex-1 rounded-sm">
+        <div className="h-[380px] md:w-[360px] w-full relative md:flex-1 rounded-sm">
           <Image
             src="/assets/istockphoto-1410016214-612x612.jpg"
             alt="garbarge collection"
@@ -67,17 +68,17 @@ const About = () => {
           />
         </div>
       </div>
-      <div className="px-4 bg-[#0C4E1A] grid grid-cols-4 gap-10 py-20 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
-        <div className="col-span-2">
-          <h1 className="text-white text-sm uppercase font-bold mb-3">
+      <div className="px-4 bg-[#0C4E1A] grid grid-cols-1 md:grid-cols-4 gap-10 py-20 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
+        <div className="md:col-span-2">
+          <h1 className="text-white text-xs text-center md:text-sm uppercase font-bold mb-3">
             Our Commitment to Quality Services
           </h1>
-          <h2 className="text-6xl font-bold text-white">
+          <h2 className="md:text-6xl text-3xl text-center font-bold text-white">
             World-Class Recycling & Waste Management
           </h2>
         </div>
         <div className="flex items-center gap-4">
-          <div className=" bg-white  h-[260px] px-4 py-5 rounded-md">
+          <div className=" bg-white  h-[260px] w-full px-4 py-5 rounded-md">
             <div className="flex justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -137,7 +138,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className=" bg-white  h-[260px] px-4 py-5 rounded-md">
+        <div className=" bg-white  h-[260px] w-full px-4 py-5 rounded-md">
           <div className="flex justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -177,20 +178,20 @@ const About = () => {
         </div>
       </div>
       {/* {process}  */}
-      <div className="py-20 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
-        <h1 className="text-[#0C4E1A] text-center text-sm uppercase font-bold mb-2">
+      <div className="py-20 px-5 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
+        <h1 className="text-[#0C4E1A] text-center text-xs md:text-sm uppercase font-bold mb-2">
           Our Process
         </h1>
-        <h2 className="text-6xl font-bold text-monochrome text-center mb-16">
+        <h2 className="md:text-6xl text-3xl font-bold text-monochrome text-center mb-16">
           Here&apos;s how to get our services
         </h2>
 
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div className="flex justify-center flex-col items-center">
             <div className="h-10 w-10 bg-[#0C4E1A]/90 rounded-lg flex justify-center items-center font-bold mb-8 text-white">
               01
             </div>
-            <div className="w-[320px] h-[320px] border border-b-[#0C4E1A]/70 border-b-4  px-4 py-4 shadow-lg rounded-md hover:-translate-y-3 transition ">
+            <div className="md:w-[320px] w-full h-[320px] border border-b-[#0C4E1A]/70 border-b-4  px-4 py-4 shadow-lg rounded-md hover:-translate-y-3 transition ">
               <div className="flex justify-center my-4">
                 <div className="h-10 w-10 relative">
                   <Image
@@ -217,7 +218,7 @@ const About = () => {
             <div className="h-10 w-10 bg-[#0C4E1A]/90 rounded-lg flex justify-center items-center font-bold mb-8 text-white">
               02
             </div>
-            <div className="w-[320px] h-[320px] border border-b-[#0C4E1A]/70 border-b-4 px-4 py-4 shadow-lg rounded-md hover:-translate-y-3 transition ">
+            <div className="md:w-[320px] w-full h-[320px] border border-b-[#0C4E1A]/70 border-b-4 px-4 py-4 shadow-lg rounded-md hover:-translate-y-3 transition ">
               <div className="flex justify-center my-4">
                 <div className="h-10 w-10 relative">
                   <Image
@@ -242,7 +243,7 @@ const About = () => {
           <div className="h-10 w-10 bg-[#0C4E1A]/90 rounded-lg flex justify-center items-center font-bold mb-8 text-white">
               03
             </div>
-            <div className="w-[320px] h-[320px] border border-b-[#0C4E1A]/70 border-b-4 px-4 py-4 hover:shadow-xl hover:-translate-y-3 transition shadow-lg rounded-md">
+            <div className="md:w-[320px] w-full h-[320px] border border-b-[#0C4E1A]/70 border-b-4 px-4 py-4 hover:shadow-xl hover:-translate-y-3 transition shadow-lg rounded-md">
               <div className="flex justify-center my-4">
                 <div className="h-10 w-10 relative">
                   <Image
@@ -273,7 +274,7 @@ const About = () => {
           alt=""
           className="absolute object-cover"
         />
-        <div className="h-full w-full z-10 flex justify-evenly items-center flex-col gap-12 md:flex-row bg-[#0C4E1A]/85 py-24 px-4 md:px-[40px] lg:px-[60px] xl:px-[60px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
+        <div className="h-full w-full z-10 flex justify-center md:justify-evenly items-center flex-col gap-12 md:flex-row bg-[#0C4E1A]/85 py-24 px-4 md:px-[40px] lg:px-[60px] xl:px-[60px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
           <div className="flex items-center  gap-2">
             <BadgeCheck className="stroke-white h-10 w-10" />
             <div className="flex flex-col">
@@ -355,6 +356,68 @@ const About = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+        </div>
+      </div>
+         {/* { contact us } */}
+         <div className="px-4 md:px-[40px] lg:px-[80px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px] w-full  pb-32 flex  gap-12 md:gap-20 md:flex-row flex-col">
+        <div className="w-full flex-1">
+          <ContactUsForm />
+        </div>
+        <div className="flex-1">
+          <h2 className="text-xs md:text-sm uppercase  font-bold text-[#0C4E1A] mb-2">
+            Need any help?
+          </h2>
+          <h3 className="text-monochrome text-2xl md:text-5xl font-bold mb-3">
+            Get in touch with us
+          </h3>
+          <p>
+            Got questions, ideas, or feedback? Let&apos;s connect! Whether
+            you&apos;re curious about our services, have a project in mind, or
+            just want to say hello, we&apos;re here for you. Reach out through
+            our contact info or drop us a message, our team is ready to assist
+            and explore how we can work together.
+          </p>
+          <div>
+            <div className="mt-6 flex items-center gap-6">
+              <div className="bg-[#0C4E1A] rounded-sm flex justify-center items-center flex-col h-16 w-16">
+                <Phone className="h-8 w-8 stroke-white" />
+              </div>
+              <div>
+                <p className="text-sm md:text-base font-bold mb-4">
+                  Have any question?
+                </p>
+                <p className="text-sm md:text-base font-normal">
+                  +254796108651
+                </p>
+              </div>
+            </div>
+            <div className="mt-6 flex items-center gap-6">
+              <div className="bg-[#0C4E1A] rounded-sm flex justify-center items-center flex-col h-16 w-16">
+                <Mail className="h-8 w-8 stroke-white" />
+              </div>
+              <div>
+                <p className="text-sm md:text-base font-bold mb-4">
+                  Write email
+                </p>
+                <p className="text-sm md:text-base font-normal">
+                  info@softsolutions.com
+                </p>
+              </div>
+            </div>
+            <div className="mt-6 flex items-center gap-6">
+              <div className="bg-[#0C4E1A] rounded-sm flex justify-center items-center flex-col h-16 w-16">
+                <MapPin className="h-8 w-8 stroke-white" />
+              </div>
+              <div>
+                <p className="text-sm md:text-base font-bold mb-4">
+                  Visit anytime
+                </p>
+                <p className="text-sm md:text-base font-normal">
+                  westlands, Nairobi
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
