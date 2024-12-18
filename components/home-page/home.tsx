@@ -14,10 +14,15 @@ import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { comments, items, our_partners, reasons, services } from "@/lib/constants";
+import {
+  comments,
+  items,
+  our_partners,
+  reasons,
+  services,
+} from "@/lib/constants";
 
 const Home = () => {
-
   return (
     <div>
       <div className="h-[800px] w-full relative">
@@ -37,12 +42,14 @@ const Home = () => {
               environmental impact and create a cleaner future.
             </p>
             <div className="flex gap-4 mt-6">
-              <Button
-                type="button"
-                className="bg-green-600 text-base font-medium hover:bg-green-600/90 text-white"
-              >
-                Get Started
-              </Button>
+              <Link href="/about">
+                <Button
+                  type="button"
+                  className="bg-green-600 text-base font-medium hover:bg-green-600/90 text-white"
+                >
+                  Get Started
+                </Button>
+              </Link>
               <Button
                 type="button"
                 className="bg-transparent text-base font-medium text-white hover:bg-white border-2 hover:text-[#0C4E1A]"
@@ -176,14 +183,18 @@ const Home = () => {
           <BadgeCheck className="stroke-white h-12 w-12" />
           <div>
             <p className="text-white font-bold text-3xl md:text-6xl">20+</p>
-            <p className="text-white font-medium text-base">Years Of Experience</p>
+            <p className="text-white font-medium text-base">
+              Years Of Experience
+            </p>
           </div>
         </div>
         <div className="flex items-center gap-4">
           <Users className="stroke-white h-12 w-12" />
           <div>
             <p className="text-white font-bold text-3xl md:text-6xl">3000+</p>
-            <p className="text-white font-medium text-base">Satisfied Clients</p>
+            <p className="text-white font-medium text-base">
+              Satisfied Clients
+            </p>
           </div>
         </div>
         <div className="flex items-center gap-4">
