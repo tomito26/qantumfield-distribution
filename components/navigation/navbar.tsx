@@ -36,9 +36,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between absolute w-full mt-8  bg-transparent  items-center  flex-col md:flex-row  h-[92px] px-4 md:px-[60px] lg:px-[80px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
+    <nav className="flex justify-between absolute w-full  bg-white z-30  md:bg-transparent  items-center  flex-col md:flex-row  h-[92px] px-4 md:px-[60px] lg:px-[80px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
       <div className="flex justify-between h-full w-full items-center">
-        <div className="relative h-[80px] w-[160px] md:h-[60px] md:w-[180px]">
+        <div className="relative h-[80px] w-[200px] md:h-[80px] md:w-[200px]">
           <Image
             src="/assets/imageedit_3_8011956413.png"
             fill
@@ -47,23 +47,23 @@ const Navbar = () => {
           />
         </div>
         <button
-            className="md:hidden block mr-4"
+            className="mr-4 shrink-0 z-30 md:hidden"
             onClick={handleMobileMenuToggle}
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6 text-body-gray" />
+              <X className="w-6 h-6 stroke-body-gray" />
             ) : (
-              <Menu className="w-6 h-6 text-body-gray" />
+              <Menu className="w-6 h-6  stroke-body-gray" />
             )}
           </button>
       </div>
-      <ul className={cn(isMobileMenuOpen ? "flex items-center justify-center flex-col absolute md:relative top-[92px] md:top-0  space-y-10 md:space-y-0" :  "hidden md:flex"," items-center justify-center  md:space-x-10  md:relative md:flex-row  pb-4 md:pb-0 md:h-full z-50 ")}>
+      <ul className={cn(isMobileMenuOpen ? "flex items-center bg-white md:bg-transparent  w-full justify-center flex-col z-10 absolute md:relative top-[90px] md:top-0  space-y-10 md:space-y-0" :  "hidden md:flex"," items-center justify-center  md:space-x-10  md:relative md:flex-row pt-6 md:pt-0 pb-4 md:pb-0 md:h-full z-50 ")}>
         {links.map(({ title, subLink, link }) =>
           link ? (
             <li key={title} className="inline-flex items-center h-full">
               <Link
                 href={link}
-                className={cn("text-base font-medium text-white hover:border-b-2 border-white px-1", pathname === link && "border-b-2")}
+                className={cn("text-base font-medium hover:text-[#0C4E1A]  md:text-white hover:border-b-2 border-b-white text-center  px-1", pathname === link && "border-b-2 text-[#0C4E1A]")}
                 onClick={() => handleLinkClick()}
               >
                 {title}
@@ -85,12 +85,12 @@ const Navbar = () => {
                   aria-expanded={menuOpen}
                 >
                   <div className="flex items-center justify-center flex-row gap-x-2 hover:border-b-2 border-white px-1">
-                    <span className="text-base font-medium text-white inline-flex items-center">
+                    <span className="text-base text-center font-medium md:text-white inline-flex items-center">
                       {title}
                     </span>
                     <ChevronDown
                       className={cn(
-                        "transition-transform duration-200 stroke-white",
+                        "transition-transform duration-200 stroke-body-gray md:stroke-white",
                         menuOpen ? "rotate-180" : "rotate-0"
                       )}
                     />
@@ -116,7 +116,7 @@ const Navbar = () => {
             )
           )
         )}
-        <Button className="shrink-0 bg-white text-[#0C4E1A] text-base font-medium hover:bg-white/90">
+        <Button className="shrink-0 bg-[#0C4E1A] md:bg-white text-white md:text-[#0C4E1A] text-base font-medium hover:bg-white/90">
           Contact Us
         </Button>
       </ul>
