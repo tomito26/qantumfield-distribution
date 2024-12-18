@@ -39,7 +39,7 @@ const Home = () => {
             <div className="flex gap-4 mt-6">
               <Button
                 type="button"
-                className="bg-white hover:bg-white text-[#0C4E1A]"
+                className="bg-green-600 text-base font-medium hover:bg-green-600/90 text-white"
               >
                 Get Started
               </Button>
