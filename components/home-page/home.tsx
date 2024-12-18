@@ -85,7 +85,7 @@ const Home = () => {
             ))}
           </div>
         </div>
-        <div className="h-[380px] w-full md:w-[360px] relative md:flex-1 rounded-sm">
+        <div className="md:h-[380px] h-[320px] w-full md:w-[360px] relative md:flex-1 rounded-sm">
           <Image
             src="/assets/360_F_631323355_OWXprkpNk7TFl9iwsCwLObMCTaI9KyXY.jpg"
             alt="garbarge collection"
@@ -257,7 +257,7 @@ const Home = () => {
             {comments.map((comment) => (
               <SwiperSlide key={comment.id} className="pb-16 pt-12">
                 <div
-                  className="flex items-center flex-col md:flex-row gap-6 p-6 bg-white border-b-4 h-[400px] md:h-[320px] border-[#0C4E1A] rounded-sm"
+                  className="flex items-center flex-col md:flex-row gap-6 p-6 bg-white border-b-4 h-[430px] md:h-[320px] border-[#0C4E1A] rounded-sm"
                   key={comment.id}
                 >
                   <div className="h-[80px] w-[80px] rounded-full relative shrink-0">
