@@ -70,10 +70,10 @@ const About = () => {
       </div>
       <div className="px-4 bg-[#0C4E1A] grid grid-cols-1 md:grid-cols-4 gap-10 py-20 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
         <div className="md:col-span-2">
-          <h1 className="text-white text-xs text-center md:text-sm uppercase font-bold mb-3">
+          <h1 className="text-white text-xs text-center md:text-left md:text-sm uppercase font-bold mb-3">
             Our Commitment to Quality Services
           </h1>
-          <h2 className="md:text-6xl text-3xl text-center font-bold text-white">
+          <h2 className="md:text-6xl text-3xl text-center md:text-left font-bold text-white">
             World-Class Recycling & Waste Management
           </h2>
         </div>
