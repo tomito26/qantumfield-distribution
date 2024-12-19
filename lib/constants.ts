@@ -44,7 +44,7 @@ export const services = [
       "Proper disposal of general, recyclable, and hazardous waste.",
     image:
       "/assets/The-Benefits-of-Waste-Collection-Services-for-Your-Business-scaled.jpg",
-    link: "/waste-diposal",
+    link: "/waste-collection-and-disposal",
   },
   {
     id: 2,
@@ -68,7 +68,7 @@ export const services = [
     title: "Composting and Organic Waste Solutions",
     description: "Converting food and organic waste into compost",
     image: "/assets/whatsapp_image_2021-08-31_at_12.35.29_pm_10_1.jpeg",
-    link: "/composting-organic-waste",
+    link: "/composting-and-organic-waste-solutions",
   },
 ];
 
