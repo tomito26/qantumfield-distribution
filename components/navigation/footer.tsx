@@ -63,7 +63,7 @@ const Footer = () => {
               <h2 className="text-base font-bold text-white">
                 Main Support Line
               </h2>
-              <p className="text-base underline text-white">+254 700524588</p>
+              <p className="text-base underline underline-offset-8 decoration-2 text-white">+254 700524588</p>
             </div>
           </div>
           <div className="flex items-center gap-3 mt-4">
@@ -72,7 +72,7 @@ const Footer = () => {
               <h2 className="text-base font-bold text-white">
                 General Enquiries
               </h2>
-              <p className="text-base underline text-white">
+              <p className="text-base underline underline-offset-8 decoration-2 text-white">
               quantumfielddistribution@gmail.com
               </p>
             </div>
