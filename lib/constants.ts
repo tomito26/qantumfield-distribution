@@ -19,12 +19,12 @@ export const links = [
         link: "/recycling-solutions",
       },
       {
-        title: "Hazardous Waste Management",
-        link: "/hazardous-waste-management",
+        title: "Asset Recovery and Disposal",
+        link: "/asset-recovery-and-disposal",
       },
       {
-        title: "Composting and Organic Waste Solutions",
-        link: "composting-and-organic-waste-solutions",
+        title: "Environmental Consulting",
+        link: "/environmental-consulting",
       },
     ],
   },
@@ -65,7 +65,7 @@ export const services = [
   },
   {
     id: 4,
-    title: "Environmental Consulting ",
+    title: "Environmental Consulting",
     description: "We offer expertise in waste audits, strategic planning, and operational improvements.",
     image: "/assets/whatsapp_image_2021-08-31_at_12.35.29_pm_10_1.jpeg",
     link: "/environmental-consulting",
