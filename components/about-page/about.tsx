@@ -141,8 +141,9 @@ const About = () => {
                 Our Mission
               </h2>
               <p className="text-base">
-                Delivering sustainable solutions to reduce waste, protect the
-                environment, and inspire eco-friendly practices.
+                To contribute to a cleaner, greener planet by delivering
+                innovative and responsible recycling and waste disposal
+                solutions that benefit clients and the environment.
               </p>
             </div>
           </div>
@@ -215,10 +216,10 @@ const About = () => {
                 Schedule a Pickup
               </h2>
               <p className="text-base text-center">
-                Get in touch with us to schedule a pickup day
-                that works for you. We&apos;ll discuss your waste management
-                needs and recommend a solution that&apos;s tailored to your
-                specific requirements.
+                Get in touch with us to schedule a pickup day that works for
+                you. We&apos;ll discuss your waste management needs and
+                recommend a solution that&apos;s tailored to your specific
+                requirements.
               </p>
             </div>
           </div>
