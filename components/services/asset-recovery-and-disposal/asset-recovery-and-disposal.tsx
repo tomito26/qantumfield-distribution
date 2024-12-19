@@ -135,7 +135,7 @@ const AssetRecoveryAndDisposal = () => {
           </h2>
           <div className="h-[380px]  w-full relative  rounded-sm">
             <Image
-              src="/assets/istockphoto-1410016214-612x612.jpg"
+              src="/assets/assortment-dirty-dumped-objects (1).jpg"
               alt="garbarge collection"
               fill
               className="absolute object-cover rounded"
