@@ -52,7 +52,7 @@ export const services = [
     description:
       "Sorting and recycling services for paper, plastic, glass, and metals.",
     image:
-      "/assets/Municipal_recycling_facilities,_Montgomery_County,_MD._2007,_Credit_USEPA_(14410405277).jpg",
+      "/assets/UNDP-Jordan-2019-women-recycling-1304_2 (1).jpg",
     link: "/recycling-solutions",
   },
   {
@@ -60,14 +60,14 @@ export const services = [
     title: "Asset Recovery and Disposal ",
     description:
       "Efficient recycling for electronic waste (e-waste), plastics, and metals.",
-    image: "/assets/ecologist-standing-field-with-garbage-biohazard-sign.jpg",
+    image: "/assets/assortment-dirty-dumped-objects.jpg",
     link: "/asset-recovery-and-disposal",
   },
   {
     id: 4,
     title: "Environmental Consulting",
     description: "We offer expertise in waste audits, strategic planning, and operational improvements.",
-    image: "/assets/whatsapp_image_2021-08-31_at_12.35.29_pm_10_1.jpeg",
+    image: "/assets/medium-shot-men-working-together (1).jpg",
     link: "/environmental-consulting",
   },
 ];
@@ -109,7 +109,7 @@ export const comments = [
     client: {
       name: "Sarah K",
       profile_photo_url: "/assets/african-american-woman-autumn-outdoors.jpg",
-      company: " EcoSolutions Inc.",
+      company: " Urban Enterprises",
     },
   },
   {
@@ -131,7 +131,7 @@ export const comments = [
       name: "Alex J",
       profile_photo_url:
         "/assets/young-african-american-man-wearing-denim-shirt.jpg",
-      company: "MetroCity Logistics",
+      company: " Apex Innovations",
     },
   },
   {
@@ -142,7 +142,7 @@ export const comments = [
       name: "Vanessa W",
       profile_photo_url:
         "/assets/young-beautiful-woman-with-curly-hair-isolated.jpg",
-      company: " EcoSolutions Inc.",
+      company: "Pioneer Group",
     },
   },
 ];

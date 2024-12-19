@@ -53,11 +53,12 @@ const About = () => {
             Advancing Sustainability in Waste Services
           </h2>
           <p className="text-base mb-4">
-            We are eco-management company dedicated to environmental
-            conservation, sustainable practices, and waste management solutions.
-            We are committed to creating innovative and impactful strategies
-            that contribute to a healthier planet while empowering businesses,
-            communities, and individuals to embrace eco-friendly solutions.
+            We are a reliable provider of sustainable waste management
+            solutions. We offer a comprehensive suite of services, including
+            acquisition, responsible disposal, and recycling of a wide range of
+            waste and obsolete materials. Our operations are conducted with the
+            utmost commitment to professionalism, safety, and environmental
+            responsibility.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 ">
             {items.map((item, index) => (
