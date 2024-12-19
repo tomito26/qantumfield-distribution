@@ -103,7 +103,7 @@ const Footer = () => {
       </div>
       <div className="h-[1px] w-full bg-white mb-6" />
       <p className="text-base text-center text-white">
-        Copyright © 2024 Quantumfield Distribution LTD® | All rights reserved
+        Copyright © 2024 Quantumfield Distribution LTD ® | All rights reserved
       </p>
     </footer>
   );
