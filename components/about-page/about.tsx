@@ -1,10 +1,17 @@
-"use client"
-import { items, our_partners } from "@/lib/constants";
-import { BadgeCheck, Building2, ChevronRight, CircleCheck, Mail, MapPin, Phone, Users } from "lucide-react";
+"use client";
+import { items } from "@/lib/constants";
+import {
+  BadgeCheck,
+  Building2,
+  ChevronRight,
+  CircleCheck,
+  Mail,
+  MapPin,
+  Phone,
+  Users,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { ContactUsForm } from "../forms/contact-us-form";
@@ -21,7 +28,9 @@ const About = () => {
         />
         <div className="bg-[#0C4E1A]/70 h-full flex items-center w-full z-10 absolute px-4 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
           <div>
-            <h1 className="md:text-6xl text-3xl font-bold text-white mb-6">About Us</h1>
+            <h1 className="md:text-6xl text-3xl font-bold text-white mb-6">
+              About Us
+            </h1>
             <p className="text-white flex text-base md:w-7/12">
               <Link
                 href="/"
@@ -206,7 +215,7 @@ const About = () => {
                 Schedule a Pickup
               </h2>
               <p className="text-base text-center">
-                Schedule a Pickup Get in touch with us to schedule a pickup day
+                Get in touch with us to schedule a pickup day
                 that works for you. We&apos;ll discuss your waste management
                 needs and recommend a solution that&apos;s tailored to your
                 specific requirements.
@@ -240,7 +249,7 @@ const About = () => {
             </div>
           </div>
           <div className="flex justify-center flex-col items-center">
-          <div className="h-10 w-10 bg-[#0C4E1A]/90 rounded-lg flex justify-center items-center font-bold mb-8 text-white">
+            <div className="h-10 w-10 bg-[#0C4E1A]/90 rounded-lg flex justify-center items-center font-bold mb-8 text-white">
               03
             </div>
             <div className="md:w-[320px] w-full h-[320px] border border-b-[#0C4E1A]/70 border-b-4 px-4 py-4 hover:shadow-xl hover:-translate-y-3 transition shadow-lg rounded-md">
@@ -283,83 +292,29 @@ const About = () => {
             </div>
           </div>
           <div className="flex items-center gap-4">
-          <Users className="stroke-white h-12 w-12" />
-          <div>
-            <p className="text-white font-bold text-6xl">3000+</p>
-            <p className="text-white font-medium text-base">Satisfied Clients</p>
+            <Users className="stroke-white h-12 w-12" />
+            <div>
+              <p className="text-white font-bold text-6xl">3000+</p>
+              <p className="text-white font-medium text-base">
+                Satisfied Clients
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <Building2 className="stroke-white h-12 w-12" />
+            <div>
+              <p className="text-white font-bold text-6xl">10+</p>
+              <p className="text-white font-medium text-base">
+                Industries Served
+              </p>
+            </div>
           </div>
         </div>
-        <div className="flex items-center gap-4">
-          <Building2 className="stroke-white h-12 w-12" />
-          <div>
-            <p className="text-white font-bold text-6xl">10+</p>
-            <p className="text-white font-medium text-base">Industries Served</p>
-          </div>
-        </div>
-        </div>
       </div>
-        {/* our clients  */}
-        <div className="md:px-[60px]  px-4 lg:px-[80px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]  pt-20 pb-32 flex justify-center flex-col items-center">
-        <div className="md:w-8/12">
-          <h2 className="text-xs md:text-sm uppercase font-bold text-[#0C4E1A] mb-3 text-center">
-            Our Clients
-          </h2>
-          <h3 className="text-2xl md:text-5xl font-bold text-monochrome text-center mb-3">
-            Creating Value Through Meaningful Partnerships
-          </h3>
-        </div>
-        <div className="flex justify-center items-center w-full">
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay, EffectFade]}
-            slidesPerView={1}
-            spaceBetween={20}
-            pagination={{ clickable: true }}
-            loop={true}
-            autoplay={{ delay: 5000 }}
-            breakpoints={{
-              640: {
-                slidesPerView: 1,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 2,
-                spaceBetween: 30,
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 40,
-              },
-              1300: {
-                slidesPerView: 3,
-                spaceBetween: 50,
-              },
-              1536: {
-                slidesPerView: 3,
-                spaceBetween: 60,
-              },
-            }}
-            className="flex justify-center items-center flex-row w-full"
-          >
-            {[...our_partners, ...our_partners].map((partner, index) => (
-              <SwiperSlide key={index}>
-                <div className="flex justify-center items-center pt-6 pb-16">
-                  <div className="h-[80px] w-[240px] relative rounded-lg">
-                    <Image
-                      src={partner.logo}
-                      alt={partner.partner}
-                      fill
-                      className="absolute object-contain rounded-lg"
-                      priority
-                    />
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </div>
-         {/* { contact us } */}
-         <div className="px-4 md:px-[40px] lg:px-[80px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px] w-full  pb-32 flex  gap-12 md:gap-20 md:flex-row flex-col">
+      {/* our clients  */}
+
+      {/* { contact us } */}
+      <div className="px-4 md:px-[40px] lg:px-[80px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px] w-full  pb-32 flex  gap-12 md:gap-20 md:flex-row flex-col">
         <div className="w-full flex-1">
           <ContactUsForm />
         </div>
@@ -387,7 +342,7 @@ const About = () => {
                   Have any question?
                 </p>
                 <p className="text-sm md:text-base font-normal">
-                  +254796108651
+                  +254 700524588
                 </p>
               </div>
             </div>
@@ -400,7 +355,7 @@ const About = () => {
                   Write email
                 </p>
                 <p className="text-sm md:text-base font-normal">
-                  info@softsolutions.com
+                  quantumfielddistribution@gmail.com
                 </p>
               </div>
             </div>
@@ -413,7 +368,7 @@ const About = () => {
                   Visit anytime
                 </p>
                 <p className="text-sm md:text-base font-normal">
-                  westlands, Nairobi
+                  Nairobi, Kenya
                 </p>
               </div>
             </div>

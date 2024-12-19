@@ -63,7 +63,7 @@ const Footer = () => {
               <h2 className="text-base font-bold text-white">
                 Main Support Line
               </h2>
-              <p className="text-base underline text-white">+254712070289</p>
+              <p className="text-base underline text-white">+254 700524588</p>
             </div>
           </div>
           <div className="flex items-center gap-3 mt-4">
@@ -73,7 +73,7 @@ const Footer = () => {
                 General Enquiries
               </h2>
               <p className="text-base underline text-white">
-                Info@quantumfielddistributionltd.com
+              quantumfielddistribution@gmail.com
               </p>
             </div>
           </div>
@@ -101,7 +101,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="h-[1px] w-full bg-white mb-6"/>
+      <div className="h-[1px] w-full bg-white mb-6" />
       <p className="text-base text-center text-white">
         Copyright © 2024 Quantumfield Distribution LTD® | All rights reserved
       </p>
