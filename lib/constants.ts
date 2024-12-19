@@ -57,18 +57,18 @@ export const services = [
   },
   {
     id: 3,
-    title: "Hazardous Waste Management",
+    title: "Asset Recovery and Disposal ",
     description:
-      "Safe handling, transportation, and disposal of hazardous materials.",
+      "Efficient recycling for electronic waste (e-waste), plastics, and metals.",
     image: "/assets/ecologist-standing-field-with-garbage-biohazard-sign.jpg",
-    link: "/hazardous-waste-management",
+    link: "/asset-recovery-and-disposal",
   },
   {
     id: 4,
-    title: "Composting and Organic Waste Solutions",
-    description: "Converting food and organic waste into compost",
+    title: "Environmental Consulting ",
+    description: "We offer expertise in waste audits, strategic planning, and operational improvements.",
     image: "/assets/whatsapp_image_2021-08-31_at_12.35.29_pm_10_1.jpeg",
-    link: "/composting-and-organic-waste-solutions",
+    link: "/environmental-consulting",
   },
 ];
 
