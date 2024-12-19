@@ -13,6 +13,7 @@ export const links = [
       {
         title: "Waste Collection and Disposal",
         link: "/waste-collection-and-disposal",
+        image: "/assets"
       },
       {
         title: "Recycling Solutions",
@@ -30,6 +31,29 @@ export const links = [
   },
 ];
 
+export const our_services = [
+  {
+    title: "Waste Collection and Disposal",
+    link: "/waste-collection-and-disposal",
+    image: "/assets/Bin-1--Streamline-Ultimate.png"
+  },
+  {
+    title: "Recycling Solutions",
+    link: "/recycling-solutions",
+    image: "/assets/Recycling-Sign--Streamline-Ultimate.png"
+  },
+  {
+    title: "Asset Recovery and Disposal",
+    link: "/asset-recovery-and-disposal",
+    image: "/assets/Recycled-Box-1--Streamline-Ultimate.png"
+  },
+  {
+    title: "Environmental Consulting",
+    link: "/environmental-consulting",
+    image: "/assets/Products-Briefcase--Streamline-Ultimate.png"
+  },
+];
+
 export const items = [
   "Efficient Waste Collection",
   "Cost-effective disposal solution",
@@ -40,8 +64,7 @@ export const services = [
   {
     id: 1,
     title: "Waste Collection and Disposal",
-    description:
-      "Proper disposal of general, recyclable, and hazardous waste.",
+    description: "Proper disposal of general, recyclable, and hazardous waste.",
     image:
       "/assets/The-Benefits-of-Waste-Collection-Services-for-Your-Business-scaled.jpg",
     link: "/waste-collection-and-disposal",
@@ -51,8 +74,7 @@ export const services = [
     title: "Recycling Solutions",
     description:
       "Sorting and recycling services for paper, plastic, glass, and metals.",
-    image:
-      "/assets/UNDP-Jordan-2019-women-recycling-1304_2 (1).jpg",
+    image: "/assets/UNDP-Jordan-2019-women-recycling-1304_2 (1).jpg",
     link: "/recycling-solutions",
   },
   {
@@ -60,13 +82,14 @@ export const services = [
     title: "Asset Recovery and Disposal ",
     description:
       "Efficient recycling for electronic waste (e-waste), plastics, and metals.",
-    image: "/assets/assortment-dirty-dumped-objects.jpg",
+    image: "/assets/article-pic-1.jpg",
     link: "/asset-recovery-and-disposal",
   },
   {
     id: 4,
     title: "Environmental Consulting",
-    description: "We offer expertise in waste audits, strategic planning, and operational improvements.",
+    description:
+      "We offer expertise in waste audits, strategic planning, and operational improvements.",
     image: "/assets/medium-shot-men-working-together (1).jpg",
     link: "/environmental-consulting",
   },

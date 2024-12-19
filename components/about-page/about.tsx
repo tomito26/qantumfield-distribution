@@ -14,7 +14,7 @@ import Image from "next/image";
 import Link from "next/link";
 import "swiper/css";
 import "swiper/css/pagination";
-import { ContactUsForm } from "../forms/contact-us-form";
+import ContactUsForm  from "../forms/contact-us-form";
 
 const About = () => {
   return (
