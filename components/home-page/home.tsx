@@ -301,10 +301,9 @@ const Home = () => {
         <h1 className="text-[#0C4E1A] text-center text-xs md:text-sm uppercase font-bold mb-2">
           Our Process
         </h1>
-        <h2 className="md:text-6xl text-3xl font-bold text-monochrome text-center mb-16">
+        <h2 className="md:text-6xl text-3xl font-bold text-monochrome capitalize text-center mb-16">
           Here&apos;s how to get our services
         </h2>
-
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div className="flex justify-center flex-col items-center">
             <div className="h-10 w-10 bg-[#0C4E1A]/90 rounded-lg flex justify-center items-center font-bold mb-8 text-white">

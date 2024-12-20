@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -11,10 +12,10 @@ import FormFieldWithIcon from "@/components/ui/form-field-with-icon";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Asterisk, Mail } from "lucide-react";
-import { useForm } from "react-hook-form";
 import validator from "validator";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 
 
 const ContactFormSchema = z.object({
@@ -23,7 +24,7 @@ const ContactFormSchema = z.object({
   message: z.string()
 })
 
-export const ContactUsForm = () => {
+const ContactUsForm = () => {
   const form = useForm<z.infer<typeof ContactFormSchema>>({
     resolver: zodResolver(ContactFormSchema),
     defaultValues: {
@@ -106,12 +107,12 @@ export const ContactUsForm = () => {
                   )}
                 />
               </div>
-              <Button className="bg-monochrome hover:bg-monochrome/90 w-full mt-8">Send Message</Button>
+              <Button className="bg-monochrome hover:bg-monochrome/90  mt-8">Send Message</Button>
             </form>
           </Form>
         </div>
   );
 };
 
-
+export default ContactUsForm
 
