@@ -9,8 +9,7 @@ const RecyclingSolutions = () => {
   const assets = [
     {
       title: "Electronics Recycling (E-Waste Management)",
-      description:
-        "We specialize in the recycling of electronic waste",
+      description: "We specialize in the recycling of electronic waste",
     },
     {
       title: "Plastics Recycling",
@@ -34,8 +33,7 @@ const RecyclingSolutions = () => {
     },
     {
       title: "Mixed Material Recycling",
-      description:
-        "We provides services for mixed material recycling",
+      description: "We provides services for mixed material recycling",
     },
   ];
 
@@ -55,14 +53,12 @@ const RecyclingSolutions = () => {
     },
     {
       title: "Cutting-Edge Technologies",
-      description:
-        "Using advanced tools for efficient and effective recycling",
+      description: "Using advanced tools for efficient and effective recycling",
       image: "/assets/Settings-Cog--Streamline-Freehand.png",
     },
     {
       title: "Tailored Solutions",
-      description:
-        "Custom recycling plans designed for specific client needs",
+      description: "Custom recycling plans designed for specific client needs",
       image: "/assets/Cog-Double--Streamline-Core.png",
     },
   ];
@@ -148,11 +144,11 @@ const RecyclingSolutions = () => {
         </div>
         <div className="w-full md:w-7/12  gap-10">
           <h2 className="md:text-6xl text-3xl font-bold text-monochrome mb-3">
-          Recycling Solutions
+            Recycling Solutions
           </h2>
           <div className="h-[380px]  w-full relative  rounded-sm">
             <Image
-              src="/assets/assortment-dirty-dumped-objects (1).jpg"
+              src="/assets/Municipal_recycling_facilities,_Montgomery_County,_MD._2007,_Credit_USEPA_(14410405277).jpg"
               alt="garbarge collection"
               fill
               className="absolute object-cover rounded"
@@ -168,17 +164,17 @@ const RecyclingSolutions = () => {
             </p>
             <p className="text-base mb-3">
               With a focus on reducing landfill waste and conserving natural
-              resources, we employ cutting-edge technologies and
-              best practices to deliver innovative, efficient, and eco-friendly
-              recycling solutions.
+              resources, we employ cutting-edge technologies and best practices
+              to deliver innovative, efficient, and eco-friendly recycling
+              solutions.
             </p>
             <p className="text-base mb-6">
-              By partnering with us, clients gain access to tailored
-              recycling strategies designed to minimize environmental impact,
-              comply with regulations, and achieve sustainability goals. The
-              service is ideal for handling various types of waste, from
-              everyday materials like plastics and metals to specialized waste
-              such as electronics. Key aspects include:
+              By partnering with us, clients gain access to tailored recycling
+              strategies designed to minimize environmental impact, comply with
+              regulations, and achieve sustainability goals. The service is
+              ideal for handling various types of waste, from everyday materials
+              like plastics and metals to specialized waste such as electronics.
+              Key aspects include:
             </p>
             <div className="">
               {assets.map((asset) => (
@@ -194,7 +190,7 @@ const RecyclingSolutions = () => {
           </div>
           <div className="mb-6">
             <h2 className="text-2xl my-4 font-bold text-monochrome">
-              Why Choose us for Asset Recovery
+              Why Choose us for Recycling Solutions
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {items.map((item) => (

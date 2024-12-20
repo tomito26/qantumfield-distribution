@@ -14,7 +14,8 @@ const EnvironmentalConsulting = () => {
     },
     {
       title: "Strategic Waste Management Planning",
-      description: "We assist organizations in designing and implementing customized waste management plans",
+      description:
+        "We assist organizations in designing and implementing customized waste management plans",
     },
     {
       title: "Recycling Optimization",
@@ -151,7 +152,7 @@ const EnvironmentalConsulting = () => {
           </h2>
           <div className="h-[380px]  w-full relative  rounded-sm">
             <Image
-              src="/assets/assortment-dirty-dumped-objects (1).jpg"
+              src="/assets/medium-shot-men-working-together (1).jpg"
               alt="garbarge collection"
               fill
               className="absolute object-cover rounded"
@@ -190,7 +191,7 @@ const EnvironmentalConsulting = () => {
           </div>
           <div className="mb-6">
             <h2 className="text-2xl my-4 font-bold text-monochrome">
-              Why Choose us for Asset Recovery
+              Why Choose us for Environmental Consulting
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {items.map((item) => (
