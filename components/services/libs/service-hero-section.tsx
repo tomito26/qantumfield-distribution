@@ -16,7 +16,7 @@ const ServiceHeroSection = () => {
             : pathname === "/waste-collection-and-disposal"
             ? "/assets/USE-105-garbage-dump-truck-1.jpg"
             : pathname === "/environmental-consulting"
-            ? "/assets/USE-105-garbage-dump-truck-1.jpg"
+            ? "/assets/business-partners-discussing-contract-terms.jpg"
             : "/assets/UNDP-Jordan-2019-women-recycling-1304_2.jpg"
         }
         alt="Person collecting garbage"

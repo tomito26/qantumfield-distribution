@@ -87,11 +87,11 @@ const EnvironmentalConsulting = () => {
               their sustainability goals while ensuring compliance with local
               and international environmental regulations. With a strong
               emphasis on waste reduction, recycling optimization, and
-              sustainable resource management, Quantum Field empowers clients to
+              sustainable resource management, we empower clients to
               operate more efficiently and responsibly.
             </p>
             <p className="text-base mb-6">
-              By working closely with clients, Quantum Field identifies existing
+              By working closely with clients,we identify existing
               inefficiencies in waste management processes, recommends
               actionable improvements, and provides the tools and expertise
               necessary to implement them. These consulting services not only
