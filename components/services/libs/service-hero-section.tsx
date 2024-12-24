@@ -13,11 +13,11 @@ const ServiceHeroSection = () => {
         src={
           pathname === "/asset-recovery-and-disposal"
             ? "/assets/gettyimages-494832555-scaled.webp"
-            : pathname === "/waste-collection-and-disposal"
+            : pathname === "/waste-disposal"
             ? "/assets/USE-105-garbage-dump-truck-1.jpg"
             : pathname === "/environmental-consulting"
             ? "/assets/business-partners-discussing-contract-terms.jpg"
-            : "/assets/UNDP-Jordan-2019-women-recycling-1304_2.jpg"
+            :pathname === "/recycling-solutions" ? "/assets/UNDP-Jordan-2019-women-recycling-1304_2.jpg" : ""
         }
         alt="Person collecting garbage"
         fill
@@ -44,7 +44,7 @@ const ServiceHeroSection = () => {
             <ChevronRight className="h-6 w-6 stroke-white" />
             {pathname === "/asset-recovery-and-disposal"
               ? "Asset Recovery And Disposal"
-              : pathname === "/waste-collection-and-disposal"
+              : pathname === "/waste-disposal"
               ? " Waste  Disposal"
               : pathname === "/environmental-consulting"
               ? "Environmental Consulting"

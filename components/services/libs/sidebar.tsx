@@ -12,7 +12,7 @@ const pathname = usePathname();
       {our_services.map((service) => (
         <div
           key={service.link}
-          className={cn( pathname === service.link && "border-t-[#0C4E1A] border-t-2" ,"border border-t-2 hover:border-t-2 hover:shadow-lg hover:border-t-[#0C4E1A] hover:transition-all flex items-center gap-6  mb-4")}
+          className={cn( pathname === service.link && "border-t-[#0C4E1A] border-t-2 shadow-lg" ,"border border-t-2 hover:border-t-2 hover:shadow-lg hover:border-t-[#0C4E1A] hover:transition-all flex items-center gap-6  mb-4")}
         >
           <div className="h-6 w-6 relative ml-6 my-4">
             <Image
