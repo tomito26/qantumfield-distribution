@@ -11,8 +11,8 @@ export const links = [
     title: "Services",
     subLink: [
       {
-        title: "Waste Collection and Disposal",
-        link: "/waste-collection-and-disposal",
+        title: "Waste Disposal",
+        link: "/waste-disposal",
         image: "/assets"
       },
       {
@@ -63,11 +63,11 @@ export const items = [
 export const services = [
   {
     id: 1,
-    title: "Waste Collection and Disposal",
+    title: "Waste  Disposal",
     description: "Proper disposal of general, recyclable, and hazardous waste.",
     image:
       "/assets/The-Benefits-of-Waste-Collection-Services-for-Your-Business-scaled.jpg",
-    link: "/waste-collection-and-disposal",
+    link: "/waste-disposal",
   },
   {
     id: 2,

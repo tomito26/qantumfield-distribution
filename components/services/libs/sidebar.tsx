@@ -19,7 +19,7 @@ const ServiceSidebar = () => {
     },
   ];
   return (
-    <div className="w-4/12 hidden md:block">
+    <div className="w-4/12 mt-3 hidden md:block">
       {our_services.map((service) => (
         <div
           key={service.link}
