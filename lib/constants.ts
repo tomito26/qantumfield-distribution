@@ -1,3 +1,5 @@
+import { BadgeCheck, Users, Building2, Phone, Mail, MapPin } from "lucide-react";
+
 export const links = [
   {
     title: "Home",
@@ -11,8 +13,8 @@ export const links = [
     title: "Services",
     subLink: [
       {
-        title: "Waste Collection and Disposal",
-        link: "/waste-collection-and-disposal",
+        title: "Waste Disposal",
+        link: "/waste-disposal",
         image: "/assets"
       },
       {
@@ -33,8 +35,8 @@ export const links = [
 
 export const our_services = [
   {
-    title: "Waste Collection and Disposal",
-    link: "/waste-collection-and-disposal",
+    title: "Waste Disposal",
+    link: "/waste-disposal",
     image: "/assets/Bin-1--Streamline-Ultimate.png"
   },
   {
@@ -63,11 +65,11 @@ export const items = [
 export const services = [
   {
     id: 1,
-    title: "Waste Collection and Disposal",
+    title: "Waste  Disposal",
     description: "Proper disposal of general, recyclable, and hazardous waste.",
     image:
       "/assets/The-Benefits-of-Waste-Collection-Services-for-Your-Business-scaled.jpg",
-    link: "/waste-collection-and-disposal",
+    link: "/waste-disposal",
   },
   {
     id: 2,
@@ -185,5 +187,62 @@ export const our_partners = [
     id: 4,
     logo: "/assets/safaricom.png",
     partner: "Safaricom",
+  },
+];
+
+export const our_processes = [
+  {
+    title: "Schedule a Pickup",
+    image: "/assets/Calendar-Edit-1--Streamline-Ultimate.png",
+    description:
+      "Get in touch with us to schedule a pickup day that works for you. We'll discuss your waste management needs and recommend a solution that's tailored to your specific requirements.",
+  },
+  {
+    title: "Pickup and Transport",
+    image: "/assets/Delivery-Truck-2--Streamline-Ultimate.png",
+    description:
+      "On the scheduled date, our team will arrive at your premises to collect your waste. We'll sort and separate the recyclable materials from the non-recyclable ones.",
+  },
+  {
+    title: "Waste Recycling",
+    image: "/assets/Recycling-Sign--Streamline-Ultimate.png",
+    description:
+      " We take recycling seriously. The materials we collect are transported to our recycling facility, where they are sorted, processed, and repurposed into new products.",
+  },
+];
+export const commitments = [
+  {
+    title: "Our Mission",
+    description:
+      "To contribute to a cleaner, greener planet by delivering  innovative and responsible recycling and waste disposal solutions that benefit clients and the environment.",
+    icon: "/assets/Target-Center-1--Streamline-Ultimate.png",
+  },
+  {
+    title: "Our Vision",
+    description:
+      "To be a global leader in environmental conservation and waste management, fostering a sustainable future for generations to come.",
+    icon: "/assets/Astronomy-Telescope--Streamline-Ultimate.png",
+  },
+];
+export const metrics = [
+  { title: "20", description: "Years Experience", icon: BadgeCheck },
+  { title: "3000", description: "Satisfied Clients", icon: Users },
+  { title: "10", description: "Industries Served", icon: Building2 },
+];
+export const contact_details = [
+  {
+    icon: Phone,
+    text: "+254 700 524588",
+    title: "Have any question?",
+  },
+  {
+    icon: Mail,
+    text: "quantumfielddistribution@gmail.com",
+    title: "Write email",
+  },
+  {
+    icon: MapPin,
+    text: "Nairobi, Kenya",
+    title: "Visit anytime",
   },
 ];

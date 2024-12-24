@@ -15,6 +15,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import HowToGetOurServices from "../about-page/lib/how-to-get-our-services";
 
 const Home = () => {
   return (
@@ -297,93 +298,7 @@ const Home = () => {
         </div>
       </div>
       {/* {process}  */}
-      <div className="py-20 px-5 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
-        <h1 className="text-[#0C4E1A] text-center text-xs md:text-sm uppercase font-bold mb-2">
-          Our Process
-        </h1>
-        <h2 className="md:text-6xl text-3xl font-bold text-monochrome capitalize text-center mb-16">
-          Here&apos;s how to get our services
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          <div className="flex justify-center flex-col items-center">
-            <div className="h-10 w-10 bg-[#0C4E1A]/90 rounded-lg flex justify-center items-center font-bold mb-8 text-white">
-              01
-            </div>
-            <div className="md:w-[320px] w-full h-[320px] border border-b-[#0C4E1A]/70 border-b-4  px-4 py-4 shadow-lg rounded-md hover:-translate-y-3 transition ">
-              <div className="flex justify-center my-4">
-                <div className="h-10 w-10 relative">
-                  <Image
-                    src="/assets/Calendar-Edit-1--Streamline-Ultimate.png"
-                    alt="calendar"
-                    fill
-                    className="absolute object-cover"
-                  />
-                </div>
-              </div>
-              <h2 className="text-[#0C4E1A] text-center font-bold text-xl mb-3">
-                Schedule a Pickup
-              </h2>
-              <p className="text-base text-center">
-                Get in touch with us to schedule a pickup day that works for
-                you. We&apos;ll discuss your waste management needs and
-                recommend a solution that&apos;s tailored to your specific
-                requirements.
-              </p>
-            </div>
-          </div>
-
-          <div className="flex justify-center flex-col items-center">
-            <div className="h-10 w-10 bg-[#0C4E1A]/90 rounded-lg flex justify-center items-center font-bold mb-8 text-white">
-              02
-            </div>
-            <div className="md:w-[320px] w-full h-[320px] border border-b-[#0C4E1A]/70 border-b-4 px-4 py-4 shadow-lg rounded-md hover:-translate-y-3 transition ">
-              <div className="flex justify-center my-4">
-                <div className="h-10 w-10 relative">
-                  <Image
-                    src="/assets/Delivery-Truck-2--Streamline-Ultimate.png"
-                    alt="calendar"
-                    fill
-                    className="absolute object-cover"
-                  />
-                </div>
-              </div>
-              <h2 className="text-[#0C4E1A] text-center font-bold text-xl mb-3">
-                Pickup and Transport
-              </h2>
-              <p className="text-base text-center">
-                On the scheduled date, our team will arrive at your premises to
-                collect your waste. We&apos;ll sort and separate the recyclable
-                materials from the non-recyclable ones.
-              </p>
-            </div>
-          </div>
-          <div className="flex justify-center flex-col items-center">
-            <div className="h-10 w-10 bg-[#0C4E1A]/90 rounded-lg flex justify-center items-center font-bold mb-8 text-white">
-              03
-            </div>
-            <div className="md:w-[320px] w-full h-[320px] border border-b-[#0C4E1A]/70 border-b-4 px-4 py-4 hover:shadow-xl hover:-translate-y-3 transition shadow-lg rounded-md">
-              <div className="flex justify-center my-4">
-                <div className="h-10 w-10 relative">
-                  <Image
-                    src="/assets/Recycling-Sign--Streamline-Ultimate.png"
-                    alt="calendar"
-                    fill
-                    className="absolute object-cover"
-                  />
-                </div>
-              </div>
-              <h2 className="text-[#0C4E1A] text-center font-bold text-xl mb-3">
-                Waste Recycling
-              </h2>
-              <p className="text-base text-center">
-                We take recycling seriously. The materials we collect are
-                transported to our recycling facility, where they are sorted,
-                processed, and repurposed into new products.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <HowToGetOurServices/>
     </div>
   );
 };
