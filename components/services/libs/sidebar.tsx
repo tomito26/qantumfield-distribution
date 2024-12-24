@@ -1,29 +1,18 @@
-import { our_services } from "@/lib/constants";
-import { Mail, MapPin, Phone } from "lucide-react";
+"use client"
+import { contact_details, our_services } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const ServiceSidebar = () => {
-  const contact_details = [
-    {
-      icon: Phone,
-      text: "+254 700 524588",
-    },
-    {
-      icon: Mail,
-      text: "quantumfielddistribution@gmail.com",
-    },
-    {
-      icon: MapPin,
-      text: "Nairobi, Kenya",
-    },
-  ];
+const pathname = usePathname();
   return (
     <div className="w-4/12 mt-3 hidden md:block">
       {our_services.map((service) => (
         <div
           key={service.link}
-          className="border border-t-2 hover:border-t-2 hover:shadow-lg hover:border-t-[#0C4E1A] hover:transition-all flex items-center gap-6  mb-4"
+          className={cn( pathname === service.link && "border-t-[#0C4E1A] border-t-2" ,"border border-t-2 hover:border-t-2 hover:shadow-lg hover:border-t-[#0C4E1A] hover:transition-all flex items-center gap-6  mb-4")}
         >
           <div className="h-6 w-6 relative ml-6 my-4">
             <Image
@@ -36,7 +25,7 @@ const ServiceSidebar = () => {
           <div className="border-l py-4 px-6">
             <Link
               href={service.link}
-              className="text-base font-medium hover:text-[#0C4E1A]"
+              className={cn(pathname === service.link && "text-[#0C4E1A]", "text-base font-medium hover:text-[#0C4E1A]")}
             >
               {service.title}
             </Link>

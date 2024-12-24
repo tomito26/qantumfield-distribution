@@ -59,7 +59,7 @@ const WasteDisposal = () => {
       <div className="w-full">
         <div className="w-full">
           <h2 className="md:text-6xl text-3xl font-bold text-monochrome mb-3">
-            Waste  Disposal
+            Waste Disposal
           </h2>
           <div className="h-[380px]  w-full relative  rounded-sm">
             <Image
@@ -71,21 +71,21 @@ const WasteDisposal = () => {
           </div>
           <div className="">
             <p className="text-base mt-6 mb-6">
-              Effective waste disposal is a cornerstone of our commitment to environmental sustainability
-              and safety. It is  designed to handle
+              Effective waste disposal is a cornerstone of our commitment to
+              environmental sustainability and safety. It is designed to handle
               non-recyclable materials in a manner that is eco-friendly,
               compliant with regulations, and efficient. By employing advanced
-              technologies and innovative methods, we ensure that
-              waste is managed responsibly, minimizing environmental impact and
+              technologies and innovative methods, we ensure that waste is
+              managed responsibly, minimizing environmental impact and
               protecting communities.
             </p>
             <p className="text-base mt-6 mb-6">
               This service is ideal for businesses, government entities, and
               individuals who need a reliable and sustainable solution for
-              disposing of various types of waste. Quantum Field provides
-              tailored approaches based on the waste type and client
-              requirements, ensuring that every disposal process is optimized
-              for safety, compliance, and efficiency.
+              disposing of various types of waste. We provide tailored
+              approaches based on the waste type and client requirements,
+              ensuring that every disposal process is optimized for safety,
+              compliance, and efficiency.
             </p>
             <div className="">
               {assets.map((asset) => (

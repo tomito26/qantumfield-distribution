@@ -16,7 +16,7 @@ import HowToGetOurServices from "./lib/how-to-get-our-services";
 const About = () => {
   return (
     <div>
-      <div className="h-[450px] w-full relative">
+      <div className="h-[500px] w-full relative">
         <Image
           src="/assets/The-Benefits-of-Waste-Collection-Services-for-Your-Business-scaled.jpg"
           alt="Person collecting garbage"
