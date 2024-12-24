@@ -193,7 +193,7 @@ const About = () => {
         <h1 className="text-[#0C4E1A] text-center text-xs md:text-sm uppercase font-bold mb-2">
           Our Process
         </h1>
-        <h2 className="md:text-6xl text-3xl font-bold text-monochrome text-center mb-16">
+        <h2 className="md:text-6xl text-3xl font-bold text-monochrome text-center capitalize mb-16">
           Here&apos;s how to get our services
         </h2>
 
