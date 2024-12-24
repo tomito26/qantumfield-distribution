@@ -1,13 +1,10 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { comments, items, reasons, services } from "@/lib/constants";
+import { comments, items, metrics, reasons, services } from "@/lib/constants";
 import {
   ArrowRight,
-  BadgeCheck,
-  Building2,
   CircleCheck,
-  Quote,
-  Users,
+  Quote
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -175,31 +172,15 @@ const Home = () => {
       </div>
       {/* {Metrics } */}
       <div className="px-4 bg-[#0C4E1A] flex items-center flex-col md:flex-row justify-evenly gap-10 py-20 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
-        <div className="flex items-center gap-4">
-          <BadgeCheck className="stroke-white h-12 w-12" />
+        {metrics.map((metric, index) =><div key={index} className="flex items-center gap-4">
+          <metric.icon className="stroke-white h-12 w-12" />
           <div>
-            <p className="text-white font-bold text-3xl md:text-6xl">20+</p>
+            <p className="text-white font-bold text-3xl md:text-6xl">{metric.title}+</p>
             <p className="text-white font-medium text-base">
-              Years Of Experience
+              {metric.description}
             </p>
           </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <Users className="stroke-white h-12 w-12" />
-          <div>
-            <p className="text-white font-bold text-3xl md:text-6xl">3000+</p>
-            <p className="text-white font-medium text-base">
-              Satisfied Clients
-            </p>
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <Building2 className="stroke-white h-12 w-12" />
-          <div>
-            <p className="text-white font-bold text-3xl md:text-6xl">10+</p>
-            <p className="text-white text-base">Industries Served</p>
-          </div>
-        </div>
+        </div>)}
       </div>
       {/* {what clienst are saying}  */}
       <div className="px-4 bg-[#f4f4f4]  gap-10 py-20 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">

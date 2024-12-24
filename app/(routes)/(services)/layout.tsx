@@ -10,7 +10,7 @@ const Serviceslayout = ({
   return (
     <div>
       <ServiceHeroSection/>
-      <div className="flex gap-10  px-4 pt-16 md:pt-20 pb-24 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
+      <div className="flex gap-10  px-4 pt-16 md:pt-20 pb-24 md:px-[40px] lg:px-[80px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
         <ServiceSidebar/>
         <div className="w-full md:w-7/12">{children}</div>
       </div>
