@@ -66,7 +66,7 @@ const RecyclingSolutions = () => {
           <h2 className="md:text-6xl text-3xl font-bold text-monochrome mb-3">
             Recycling Solutions
           </h2>
-          <div className="h-[380px]  w-full relative  rounded-sm">
+          <div className="h-[240px] md:h-[380px]  w-full relative  rounded-sm">
             <Image
               src="/assets/Municipal_recycling_facilities,_Montgomery_County,_MD._2007,_Credit_USEPA_(14410405277).jpg"
               alt="garbarge collection"

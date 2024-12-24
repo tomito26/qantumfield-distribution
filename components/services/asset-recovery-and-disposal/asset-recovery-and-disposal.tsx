@@ -55,7 +55,7 @@ const AssetRecoveryAndDisposal = () => {
           <h2 className="md:text-6xl text-3xl font-bold text-monochrome mb-3">
             Asset Recovery and Disposal Services
           </h2>
-          <div className="h-[380px]  w-full relative  rounded-sm">
+          <div className="h-[240px] md:h-[380px]  w-full relative  rounded-sm">
             <Image
               src="/assets/assortment-dirty-dumped-objects (1).jpg"
               alt="garbarge collection"
