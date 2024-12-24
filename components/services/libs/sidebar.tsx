@@ -1,10 +1,23 @@
-import React from "react";
 import { our_services } from "@/lib/constants";
+import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
 
 const ServiceSidebar = () => {
+  const contact_details = [
+    {
+      icon: Phone,
+      text: "+254 700 524588",
+    },
+    {
+      icon: Mail,
+      text: "quantumfielddistribution@gmail.com",
+    },
+    {
+      icon: MapPin,
+      text: "Nairobi, Kenya",
+    },
+  ];
   return (
     <div className="w-4/12 hidden md:block">
       {our_services.map((service) => (
@@ -30,31 +43,19 @@ const ServiceSidebar = () => {
           </div>
         </div>
       ))}
-      <div className="mt-6 flex items-center gap-6">
-        <div className="bg-[#0C4E1A] rounded-sm flex justify-center items-center flex-col h-12 w-12">
-          <Phone className="h-6 w-6 stroke-white" />
-        </div>
-        <div>
-          <p className="text-sm md:text-base font-normal">+254 700524588</p>
-        </div>
-      </div>
-      <div className="mt-6 flex items-center gap-6">
-        <div className="bg-[#0C4E1A] rounded-sm flex justify-center items-center flex-col h-12 w-12">
-          <Mail className="h-6 w-6 stroke-white" />
-        </div>
-        <div>
-          <p className="text-sm md:text-base font-normal">
-            quantumfielddistribution@gmail.com
-          </p>
-        </div>
-      </div>
-      <div className="mt-6 flex items-center gap-6">
-        <div className="bg-[#0C4E1A] rounded-sm flex justify-center items-center flex-col h-12 w-12">
-          <MapPin className="h-6 w-6 stroke-white" />
-        </div>
-        <div>
-          <p className="text-sm md:text-base font-normal">Nairobi, Kenya</p>
-        </div>
+      <div>
+        {contact_details.map((contact, index) => (
+          <div key={index} className="mt-6 flex items-center gap-6">
+            <div className="bg-[#0C4E1A] rounded-sm flex justify-center items-center flex-col h-12 w-12">
+              <contact.icon className="h-6 w-6 stroke-white" />
+            </div>
+            <div>
+              <p className="text-sm md:text-base font-semibold">
+               {contact.text}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -2,22 +2,32 @@ import ContactUsForm from "@/components/forms/contact-us-form";
 import { Check } from "lucide-react";
 import Image from "next/image";
 
-const WasteCollectionDisposal = () => {
+const WasteDisposal = () => {
   const assets = [
     {
-      title: "Safe Handling of Hazardous Waste",
+      title: "Non-Recyclable Waste Disposal",
       description:
-        "Proper procedures are followed to safely dispose of materials that pose environmental or health risks.",
+        "Not all materials can be recycled, but we ensure that non-recyclable waste is handled responsibly:",
     },
     {
-      title: "Advanced Technologies",
+      title: "Hazardous Waste Management",
       description:
-        "We employ cutting-edge solutions for efficient and eco-friendly waste breakdown and disposal",
+        "We specializes in the disposal of hazardous materials that require extra carel",
     },
     {
-      title: "Customized Solutions",
+      title: "Construction and Demolition Waste Disposal",
       description:
-        "Disposal strategies are tailored to the type of waste and the client's specific needs",
+        "We support the construction and real estate industries by managing waste from construction sites",
+    },
+    {
+      title: "Organic Waste Disposal",
+      description:
+        "Organic waste can pose environmental risks if improperly handled, and we provide effective solutions",
+    },
+    {
+      title: "Specialized Waste Disposal",
+      description:
+        "We provide solutions for niche waste streams that require customized handling such as  Batteries, tires, electronics with hazardous components, and expired goods.",
     },
   ];
 
@@ -47,10 +57,9 @@ const WasteCollectionDisposal = () => {
   return (
     <div>
       <div className="w-full">
-
         <div className="w-full">
           <h2 className="md:text-6xl text-3xl font-bold text-monochrome mb-3">
-            Waste Collection and Disposal
+            Waste  Disposal
           </h2>
           <div className="h-[380px]  w-full relative  rounded-sm">
             <Image
@@ -62,11 +71,21 @@ const WasteCollectionDisposal = () => {
           </div>
           <div className="">
             <p className="text-base mt-6 mb-6">
-              We offer a comprehensive, responsible, and environmentally
-              compliant approach to managing waste. Their focus is on utilizing
-              advanced technologies and customized solutions to ensure the safe
-              disposal of waste, with a particular emphasis on hazardous
-              materials and non-recyclable items. Key aspects include:
+              Effective waste disposal is a cornerstone of our commitment to environmental sustainability
+              and safety. It is  designed to handle
+              non-recyclable materials in a manner that is eco-friendly,
+              compliant with regulations, and efficient. By employing advanced
+              technologies and innovative methods, we ensure that
+              waste is managed responsibly, minimizing environmental impact and
+              protecting communities.
+            </p>
+            <p className="text-base mt-6 mb-6">
+              This service is ideal for businesses, government entities, and
+              individuals who need a reliable and sustainable solution for
+              disposing of various types of waste. Quantum Field provides
+              tailored approaches based on the waste type and client
+              requirements, ensuring that every disposal process is optimized
+              for safety, compliance, and efficiency.
             </p>
             <div className="">
               {assets.map((asset) => (
@@ -113,4 +132,4 @@ const WasteCollectionDisposal = () => {
   );
 };
 
-export default WasteCollectionDisposal;
+export default WasteDisposal;

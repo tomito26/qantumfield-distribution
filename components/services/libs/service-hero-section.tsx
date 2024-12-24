@@ -29,7 +29,7 @@ const ServiceHeroSection = () => {
             {pathname === "/asset-recovery-and-disposal"
               ? "Asset Recovery And Disposal"
               : pathname === "/waste-collection-and-disposal"
-              ? " Waste Collection and Disposal"
+              ? " Waste  Disposal"
               : pathname === "/environmental-consulting"
               ? "Environmental Consulting"
               : "Recycling Solutions"}
@@ -45,7 +45,7 @@ const ServiceHeroSection = () => {
             {pathname === "/asset-recovery-and-disposal"
               ? "Asset Recovery And Disposal"
               : pathname === "/waste-collection-and-disposal"
-              ? " Waste Collection and Disposal"
+              ? " Waste  Disposal"
               : pathname === "/environmental-consulting"
               ? "Environmental Consulting"
               : "Recycling Solutions"}

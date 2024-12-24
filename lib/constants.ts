@@ -33,8 +33,8 @@ export const links = [
 
 export const our_services = [
   {
-    title: "Waste Collection and Disposal",
-    link: "/waste-collection-and-disposal",
+    title: "Waste Disposal",
+    link: "/waste-disposal",
     image: "/assets/Bin-1--Streamline-Ultimate.png"
   },
   {
