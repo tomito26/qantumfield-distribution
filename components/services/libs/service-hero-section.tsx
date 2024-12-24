@@ -28,7 +28,7 @@ const ServiceHeroSection = () => {
           <h1 className="md:text-6xl text-3xl font-bold text-white mb-6 ">
             {pathname === "/asset-recovery-and-disposal"
               ? "Asset Recovery And Disposal"
-              : pathname === "/waste-collection-and-disposal"
+              : pathname === "/waste-disposal"
               ? " Waste  Disposal"
               : pathname === "/environmental-consulting"
               ? "Environmental Consulting"
