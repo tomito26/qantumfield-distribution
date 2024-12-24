@@ -125,8 +125,8 @@ const About = () => {
             <div key={index} className="flex items-center  gap-2">
               <metric.icon className="stroke-white h-10 w-10" />
               <div className="flex flex-col">
-                <p className="font-bold text-6xl text-white">{metric.title}</p>
-                <p className="text-lg font-medium text-white">
+                <p className="font-bold text-6xl text-white">{metric.title}+</p>
+                <p className="text-base font-medium text-white">
                   {metric.description}
                 </p>
               </div>

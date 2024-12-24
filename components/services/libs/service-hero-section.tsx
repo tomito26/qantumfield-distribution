@@ -13,17 +13,17 @@ const ServiceHeroSection = () => {
         src={
           pathname === "/asset-recovery-and-disposal"
             ? "/assets/gettyimages-494832555-scaled.webp"
-            : pathname === "/waste-collection-and-disposal"
+            : pathname === "/waste-disposal"
             ? "/assets/USE-105-garbage-dump-truck-1.jpg"
             : pathname === "/environmental-consulting"
             ? "/assets/business-partners-discussing-contract-terms.jpg"
-            : "/assets/UNDP-Jordan-2019-women-recycling-1304_2.jpg"
+            :pathname === "/recycling-solutions" ? "/assets/UNDP-Jordan-2019-women-recycling-1304_2.jpg" : ""
         }
         alt="Person collecting garbage"
         fill
         className="absolute object-cover"
       />
-      <div className="bg-[#0C4E1A]/70 h-full flex items-center w-full z-10 absolute px-4 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
+      <div className="bg-[#0C4E1A]/70 h-full flex items-center w-full z-10 absolute px-4 md:px-[40px] lg:px-[80px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
         <div>
           <h1 className="md:text-6xl text-3xl font-bold text-white mb-6 ">
             {pathname === "/asset-recovery-and-disposal"
@@ -44,7 +44,7 @@ const ServiceHeroSection = () => {
             <ChevronRight className="h-6 w-6 stroke-white" />
             {pathname === "/asset-recovery-and-disposal"
               ? "Asset Recovery And Disposal"
-              : pathname === "/waste-collection-and-disposal"
+              : pathname === "/waste-disposal"
               ? " Waste  Disposal"
               : pathname === "/environmental-consulting"
               ? "Environmental Consulting"

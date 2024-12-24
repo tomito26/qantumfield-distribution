@@ -61,7 +61,7 @@ const WasteDisposal = () => {
           <h2 className="md:text-6xl text-3xl font-bold text-monochrome mb-3">
             Waste Disposal
           </h2>
-          <div className="h-[380px]  w-full relative  rounded-sm">
+          <div className=" h-[240px] md:h-[380px]  w-full relative  rounded-sm">
             <Image
               src="/assets/The-Benefits-of-Waste-Collection-Services-for-Your-Business-scaled.jpg"
               alt="garbarge collection"
