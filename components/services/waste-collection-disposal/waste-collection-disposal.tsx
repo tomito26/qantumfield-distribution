@@ -1,9 +1,6 @@
-import React from "react";
-import Image from "next/image";
-import { Check, ChevronRight, Mail, MapPin, Phone } from "lucide-react";
-import Link from "next/link";
 import ContactUsForm from "@/components/forms/contact-us-form";
-import { our_services } from "@/lib/constants";
+import { Check } from "lucide-react";
+import Image from "next/image";
 
 const WasteCollectionDisposal = () => {
   const assets = [
@@ -28,8 +25,7 @@ const WasteCollectionDisposal = () => {
     {
       title: "Environmentally Responsible Disposal",
       description: "Eco-friendly disposal methods that reduce landfill waste",
-      image:
-        "/assets/Recycling-Sign--Streamline-Ultimate.png",
+      image: "/assets/Recycling-Sign--Streamline-Ultimate.png",
     },
     {
       title: "Compliance with Standards",
@@ -50,84 +46,9 @@ const WasteCollectionDisposal = () => {
   ];
   return (
     <div>
-      <div className="h-[450px] w-full relative">
-        <Image
-          src="/assets/USE-105-garbage-dump-truck-1.jpg"
-          alt="Person collecting garbage"
-          fill
-          className="absolute object-cover"
-        />
-        <div className="bg-[#0C4E1A]/70 h-full flex items-center w-full z-10 absolute px-4 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
-          <div>
-            <h1 className="md:text-6xl text-3xl  font-bold text-white mb-6">
-              Waste Collection and Disposal
-            </h1>
-            <p className="text-white flex text-base md:w-7/12">
-              <Link
-                href="/"
-                className="text-white hover:text-green-950 text-base"
-              >
-                Home
-              </Link>{" "}
-              <ChevronRight className="h-6 w-6 stroke-white" />
-              Waste Collection and Disposal
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="w-full flex gap-10  px-4 pt-16 md:pt-20 pb-24 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
-        <div className="w-4/12 hidden md:block">
-          {our_services.map((service) => (
-            <div
-              key={service.link}
-              className="border flex items-center gap-6  mb-4"
-            >
-              <div className="h-6 w-6 relative ml-6 my-4">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="border-l py-4 px-6">
-                <Link
-                  href={service.link}
-                  className="text-base font-medium hover:text-[#0C4E1A]"
-                >
-                  {service.title}
-                </Link>
-              </div>
-            </div>
-          ))}
-          <div className="mt-6 flex items-center gap-6">
-            <div className="bg-[#0C4E1A] rounded-sm flex justify-center items-center flex-col h-16 w-16">
-              <Phone className="h-8 w-8 stroke-white" />
-            </div>
-            <div>
-              <p className="text-sm md:text-base font-normal">+254 700524588</p>
-            </div>
-          </div>
-          <div className="mt-6 flex items-center gap-6">
-            <div className="bg-[#0C4E1A] rounded-sm flex justify-center items-center flex-col h-16 w-16">
-              <Mail className="h-8 w-8 stroke-white" />
-            </div>
-            <div>
-              <p className="text-sm md:text-base font-normal">
-                quantumfielddistribution@gmail.com
-              </p>
-            </div>
-          </div>
-          <div className="mt-6 flex items-center gap-6">
-            <div className="bg-[#0C4E1A] rounded-sm flex justify-center items-center flex-col h-16 w-16">
-              <MapPin className="h-8 w-8 stroke-white" />
-            </div>
-            <div>
-              <p className="text-sm md:text-base font-normal">Nairobi, Kenya</p>
-            </div>
-          </div>
-        </div>
-        <div className="w-full md:w-7/12  gap-10">
+      <div className="w-full">
+
+        <div className="w-full">
           <h2 className="md:text-6xl text-3xl font-bold text-monochrome mb-3">
             Waste Collection and Disposal
           </h2>
@@ -161,7 +82,7 @@ const WasteCollectionDisposal = () => {
           </div>
           <div className="mb-6">
             <h2 className="text-2xl my-4 font-bold text-monochrome">
-              Why Choose us for  Waste Collection and Disposal
+              Why Choose us for Waste Collection and Disposal
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {items.map((item) => (
