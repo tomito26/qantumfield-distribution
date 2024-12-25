@@ -13,6 +13,7 @@ import "swiper/css/pagination";
 import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import HowToGetOurServices from "../about-page/lib/how-to-get-our-services";
+import AnimatedCounter from "./libs/animated-counter";
 
 const Home = () => {
   return (
@@ -175,7 +176,7 @@ const Home = () => {
         {metrics.map((metric, index) =><div key={index} className="flex items-center gap-4">
           <metric.icon className="stroke-white h-12 w-12" />
           <div>
-            <p className="text-white font-bold text-3xl md:text-6xl">{metric.title}+</p>
+            <AnimatedCounter target={parseInt(metric.title)} duration={5000}/>
             <p className="text-white font-medium text-base">
               {metric.description}
             </p>
