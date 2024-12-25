@@ -12,6 +12,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import ContactUsForm from "../forms/contact-us-form";
 import HowToGetOurServices from "./lib/how-to-get-our-services";
+import AnimatedCounter from "@/components/home-page/libs/animated-counter";
 
 const About = () => {
   return (
@@ -125,7 +126,7 @@ const About = () => {
             <div key={index} className="flex items-center  gap-2">
               <metric.icon className="stroke-white h-10 w-10" />
               <div className="flex flex-col">
-                <p className="font-bold text-6xl text-white">{metric.title}+</p>
+                <AnimatedCounter target={parseInt(metric.title)} duration={5000}/>
                 <p className="text-base font-medium text-white">
                   {metric.description}
                 </p>
