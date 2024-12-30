@@ -230,7 +230,7 @@ const Home = () => {
           }}
           initial="hidden"
           animate={serviceControls}
-          transition={{ duration: 2 }}
+          transition={{ duration: 1.5 }}
           className="grid grid-cols-1 md:grid-cols-4 gap-32 md:gap-4"
         >
           {services.map((service) => (
@@ -387,7 +387,7 @@ const Home = () => {
           }}
           initial="hidden"
           animate={testimonialControls}
-          transition={{ duration: 2 }}
+          transition={{ duration: 1.5 }}
           className="flex justify-center items-center w-full"
         >
           <Swiper
@@ -477,7 +477,7 @@ const Home = () => {
             }}
             initial="hidden"
             animate={callToActionControls}
-            transition={{ duration: 3 }}
+            transition={{ duration: 1.5 }}
             className="md:text-6xl text-3xl text-center text-white font-bold mb-10"
           >
             Ready to Optimize Your Waste Management? Contact Us Now!
@@ -489,7 +489,7 @@ const Home = () => {
             }}
             initial="hidden"
             animate={callToActionControls}
-            transition={{ duration: 3.5 }}
+            transition={{ duration: 1.5 }}
           >
             <Button className="bg-white text-base  font-medium text-[#0C4E1A] hover:bg-white/80">
               Contact Us Now
