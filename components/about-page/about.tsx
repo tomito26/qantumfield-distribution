@@ -1,10 +1,5 @@
 "use client";
-import {
-  commitments,
-  contact_details,
-  items,
-  metrics
-} from "@/lib/constants";
+import { commitments, contact_details, items, metrics } from "@/lib/constants";
 import { ChevronRight, CircleCheck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,8 +8,55 @@ import "swiper/css/pagination";
 import ContactUsForm from "../forms/contact-us-form";
 import HowToGetOurServices from "./lib/how-to-get-our-services";
 import AnimatedCounter from "@/components/home-page/libs/animated-counter";
+import { motion, useInView, useAnimation } from "motion/react";
+import React from "react";
 
 const About = () => {
+  const ref = React.useRef(null);
+  const aboutUsRef = React.useRef(null);
+  const philosophyRef = React.useRef(null);
+  const metricRef = React.useRef(null);
+  const contactRef = React.useRef(null);
+  const heroInView = useInView(ref, { once: true });
+  const heroControls = useAnimation();
+  const AboutInView = useInView(aboutUsRef, { once: true });
+  const aboutControls = useAnimation();
+  const philosophyInView = useInView(philosophyRef, { once: true });
+  const philosophyControls = useAnimation();
+  const metricInView = useInView(metricRef, { once: true });
+  const metricControl = useAnimation();
+  const contactView = useInView(contactRef, { once: true });
+  const contactControls = useAnimation();
+
+  React.useEffect(() => {
+    if (heroInView) {
+      heroControls.start("visible");
+    }
+  }, [heroControls, heroInView]);
+
+  React.useEffect(() => {
+    if (AboutInView) {
+      aboutControls.start("visible");
+    }
+  }, [AboutInView, aboutControls]);
+
+  React.useEffect(() => {
+    if (philosophyInView) {
+      philosophyControls.start("visible");
+    }
+  }, [philosophyControls, philosophyInView]);
+
+  React.useEffect(() => {
+    if (metricInView) {
+      metricControl.start("visible");
+    }
+  }, [metricControl, metricInView]);
+
+  React.useEffect(() => {
+    if (contactView) {
+      contactControls.start("visible");
+    }
+  }, [contactControls, contactView]);
   return (
     <div>
       <div className="h-[500px] w-full relative">
@@ -24,8 +66,19 @@ const About = () => {
           fill
           className="absolute object-cover"
         />
-        <div className="bg-[#0C4E1A]/70 h-full flex items-center w-full z-10 absolute px-4 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
-          <div>
+        <div
+          ref={ref}
+          className="bg-[#0C4E1A]/70 h-full flex items-center w-full z-10 absolute px-4 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]"
+        >
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            initial="hidden"
+            animate={heroControls}
+            transition={{ duration: 1 }}
+          >
             <h1 className="md:text-6xl text-3xl font-bold text-white mb-6">
               About Us
             </h1>
@@ -38,12 +91,24 @@ const About = () => {
               </Link>{" "}
               <ChevronRight className="h-6 w-6 stroke-white" /> About
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
       {/* about us  */}
-      <div className="flex flex-col md:flex-row-reverse justify-between items-center gap-10 px-4 pt-20 pb-24 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
-        <div className="flex-1">
+      <div
+        ref={aboutUsRef}
+        className="flex flex-col md:flex-row-reverse justify-between items-center gap-10 px-4 pt-20 pb-24 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]"
+      >
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, x: 50 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          initial="hidden"
+          animate={heroControls}
+          transition={{ duration: 1.5 }}
+          className="flex-1"
+        >
           <h1 className="md:text-sm text-xs font-bold text-[#0C4E1A] uppercase">
             Who We are
           </h1>
@@ -66,29 +131,57 @@ const About = () => {
               </div>
             ))}
           </div>
-        </div>
-        <div className="h-[380px] md:w-[360px] w-full relative md:flex-1 rounded-sm">
+        </motion.div>
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, x: -50 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          initial="hidden"
+          animate={heroControls}
+          transition={{ duration: 1.5 }}
+          className="h-[380px] md:w-[360px] w-full relative md:flex-1 rounded-sm"
+        >
           <Image
             src="/assets/istockphoto-1410016214-612x612.jpg"
             alt="garbarge collection"
             fill
             className="absolute object-cover rounded"
           />
-        </div>
+        </motion.div>
       </div>
       {/* {commitment } */}
-      <div className="px-4 bg-[#0C4E1A] grid grid-cols-1 md:grid-cols-4 gap-10 py-20 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
-        <div className="md:col-span-2">
+      <div
+        ref={philosophyRef}
+        className="px-4 bg-[#0C4E1A] grid grid-cols-1 md:grid-cols-4 gap-10 py-20 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]"
+      >
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          initial="hidden"
+          animate={philosophyControls}
+          transition={{ duration: 1.5 }}
+          className="md:col-span-2"
+        >
           <h1 className="text-white text-xs text-center md:text-left md:text-sm uppercase font-bold mb-3">
             Our Commitment to Quality Services
           </h1>
           <h2 className="md:text-6xl text-3xl text-center md:text-left font-bold text-white">
             World-Class Recycling & Waste Management
           </h2>
-        </div>
+        </motion.div>
 
         {commitments.map((commitment, index) => (
-          <div
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            initial="hidden"
+            animate={philosophyControls}
+            transition={{ duration: 1.5 }}
             key={index}
             className=" bg-white  h-[300px] w-full px-4 py-5 rounded-md"
           >
@@ -108,7 +201,7 @@ const About = () => {
               </h2>
               <p className="text-base">{commitment.description}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
       {/* {process}  */}
@@ -121,28 +214,65 @@ const About = () => {
           alt=""
           className="absolute object-cover"
         />
-        <div className="h-full w-full z-10 flex justify-center md:justify-evenly items-center flex-col gap-12 md:flex-row bg-[#0C4E1A]/85 py-24 px-4 md:px-[40px] lg:px-[60px] xl:px-[60px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
+        <div
+          ref={metricRef}
+          className="h-full w-full z-10 flex justify-center md:justify-evenly items-center flex-col gap-12 md:flex-row bg-[#0C4E1A]/85 py-24 px-4 md:px-[40px] lg:px-[60px] xl:px-[60px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]"
+        >
           {metrics.map((metric, index) => (
-            <div key={index} className="flex items-center  gap-2">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              initial="hidden"
+              animate={metricControl}
+              transition={{ duration: 1.5 }}
+              key={index}
+              className="flex items-center  gap-2"
+            >
               <metric.icon className="stroke-white h-10 w-10" />
               <div className="flex flex-col">
-                <AnimatedCounter target={parseInt(metric.title)} duration={5000}/>
+                <AnimatedCounter
+                  target={parseInt(metric.title)}
+                  duration={5000}
+                />
                 <p className="text-base font-medium text-white">
                   {metric.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
       {/* our clients  */}
 
       {/* { contact us } */}
-      <div className="px-4 md:px-[40px] lg:px-[80px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px] w-full pt-20 pb-32 flex  gap-12 md:gap-20 md:flex-row flex-col">
-        <div className="w-full flex-1">
+      <div
+        ref={contactRef}
+        className="px-4 md:px-[40px] lg:px-[80px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px] w-full pt-20 pb-32 flex  gap-12 md:gap-20 md:flex-row flex-col"
+      >
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, x: -50 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          initial="hidden"
+          animate={metricControl}
+          transition={{ duration: 1.5 }}
+          className="w-full flex-1"
+        >
           <ContactUsForm />
-        </div>
-        <div className="flex-1">
+        </motion.div>
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, x: 50 },
+            visible: { opacity: 1, x: 0 },
+          }}
+          initial="hidden"
+          animate={metricControl}
+          transition={{ duration: 1.5 }}
+          className="flex-1"
+        >
           <h2 className="text-xs md:text-sm uppercase  font-bold text-[#0C4E1A] mb-2">
             Need any help?
           </h2>
@@ -173,7 +303,7 @@ const About = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

@@ -25,7 +25,7 @@ const HowToGetOurServices = () => {
         }}
         initial="hidden"
         animate={processControls}
-        transition={{ duration: 2 }}
+        transition={{ duration: 1.5 }}
         className="text-[#0C4E1A] text-center text-xs md:text-sm uppercase font-bold mb-2"
       >
         Our Process
