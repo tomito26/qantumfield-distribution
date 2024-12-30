@@ -39,7 +39,7 @@ const AnimatedCounter = ({ target, duration }:{target: number,  duration: number
   }, [hasAnimated, animateCounter]);
 
   return (
-    <div className="text-6xl font-bold text-white" ref={ref}>
+    <div className="text-6xl font-bold text-white mb-2" ref={ref}>
       {count.toLocaleString()}+
     </div>
   );
