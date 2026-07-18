@@ -36,14 +36,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-between absolute w-full  bg-white z-30  md:bg-transparent  items-center  flex-col md:flex-row  h-[92px] px-4 md:px-[60px] lg:px-[80px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
+    <nav className="flex justify-between absolute w-full  bg-white z-30  md:bg-transparent  items-center  flex-col md:flex-row  h-[92px] page-x">
       <div className="flex justify-between h-full w-full items-center">
         <div className="relative h-[80px] w-[200px] md:h-[80px] md:w-[200px]">
           <Image
             src="/assets/imageedit_3_8011956413.png"
             fill
             alt="Quantumfield Distribution logo"
-            className="absolute z-30 object-cover"
+            className="absolute z-30 object-contain object-left"
           />
         </div>
         <button
@@ -63,7 +63,7 @@ const Navbar = () => {
             <li key={title} className="inline-flex items-center h-full">
               <Link
                 href={link}
-                className={cn("text-base font-medium hover:text-[#0C4E1A] md:hover:text-white/90  md:text-white hover:border-b-2 border-b-white text-center  px-1", pathname === link && "border-b-2 text-[#0C4E1A]")}
+                className={cn("text-base font-medium hover:text-brand md:hover:text-white/90  md:text-white hover:border-b-2 border-b-white text-center  px-1 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2", pathname === link && "border-b-2 text-brand")}
                 onClick={() => handleLinkClick()}
               >
                 {title}
@@ -79,7 +79,7 @@ const Navbar = () => {
               >
                 <DropdownMenuTrigger
                   className={cn(
-                    "cursor-pointer p-0 border-none outline-none   relative flex items-center justify-center transition-all "
+                    "cursor-pointer p-0 border-none outline-none rounded-sm focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 relative flex items-center justify-center transition-all "
                   )}
                   aria-haspopup="true"
                   aria-expanded={menuOpen}
@@ -102,7 +102,7 @@ const Navbar = () => {
                       <DropdownMenuGroup key={item.title}>
                         <Link href={item.link} className="w-full" onClick={() =>handleLinkClick()}>
                           <DropdownMenuItem className="cursor-pointer group">
-                            <span className="text-[14px] font-[500] text-body-gray hover:text-[#0C4E1A]">
+                            <span className="text-[14px] font-[500] text-body-gray hover:text-brand">
                               {item.title}
                             </span>
                           </DropdownMenuItem>
@@ -116,9 +116,11 @@ const Navbar = () => {
             )
           )
         )}
-        <Button className="shrink-0 bg-[#0C4E1A] md:bg-white text-white md:text-[#0C4E1A] text-base font-medium hover:bg-white/90">
-          Contact Us
-        </Button>
+        <Link href="/about#contact" onClick={() => handleLinkClick()}>
+          <Button className="shrink-0 bg-brand md:bg-white text-white md:text-brand text-base font-medium hover:bg-white/90">
+            Contact Us
+          </Button>
+        </Link>
       </ul>
     </nav>
   );

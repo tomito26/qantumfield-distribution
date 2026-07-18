@@ -15,9 +15,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Quantumfield Distribution",
+  metadataBase: new URL("https://quantumfielddistribution.com"),
+  title: {
+    default: "Quantumfield Distribution",
+    template: "%s | Quantumfield Distribution",
+  },
   description:
     "Quantumfield Distribution Ltd is a leading eco-management company dedicated to environmental conservation, sustainable practices, and waste management solutions",
+  openGraph: {
+    title: "Quantumfield Distribution",
+    description:
+      "A leading eco-management company dedicated to environmental conservation, sustainable practices, and waste management solutions.",
+    type: "website",
+    locale: "en_US",
+    siteName: "Quantumfield Distribution",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Quantumfield Distribution",
+    description:
+      "A leading eco-management company dedicated to environmental conservation, sustainable practices, and waste management solutions.",
+  },
 };
 
 export default function RootLayout({

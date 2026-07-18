@@ -8,10 +8,12 @@ import "swiper/css/pagination";
 import ContactUsForm from "../forms/contact-us-form";
 import HowToGetOurServices from "./lib/how-to-get-our-services";
 import AnimatedCounter from "@/components/home-page/libs/animated-counter";
-import { motion, useInView, useAnimation } from "motion/react";
+import { motion, useInView, useAnimation, useReducedMotion } from "motion/react";
 import React from "react";
 
 const About = () => {
+  const shouldReduceMotion = useReducedMotion();
+  const motionInitial = shouldReduceMotion ? "visible" : "hidden";
   const ref = React.useRef(null);
   const aboutUsRef = React.useRef(null);
   const philosophyRef = React.useRef(null);
@@ -62,20 +64,21 @@ const About = () => {
       <div className="h-[500px] w-full relative">
         <Image
           src="/assets/The-Benefits-of-Waste-Collection-Services-for-Your-Business-scaled.jpg"
-          alt="Person collecting garbage"
+          alt=""
           fill
+          priority
           className="absolute object-cover"
         />
         <div
           ref={ref}
-          className="bg-[#0C4E1A]/70 h-full flex items-center w-full z-10 absolute px-4 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]"
+          className="bg-brand/70 h-full flex items-center w-full z-10 absolute page-x"
         >
           <motion.div
             variants={{
               hidden: { opacity: 0, y: 50 },
               visible: { opacity: 1, y: 0 },
             }}
-            initial="hidden"
+            initial={motionInitial}
             animate={heroControls}
             transition={{ duration: 1 }}
           >
@@ -85,7 +88,7 @@ const About = () => {
             <p className="text-white flex text-base md:w-7/12">
               <Link
                 href="/"
-                className="text-white hover:text-green-950 text-base"
+                className="text-white hover:text-white/70 text-base"
               >
                 Home
               </Link>{" "}
@@ -97,21 +100,21 @@ const About = () => {
       {/* about us  */}
       <div
         ref={aboutUsRef}
-        className="flex flex-col md:flex-row-reverse justify-between items-center gap-10 px-4 pt-20 pb-24 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]"
+        className="flex flex-col md:flex-row-reverse justify-between items-center gap-10 pt-20 pb-24 page-x"
       >
         <motion.div
           variants={{
             hidden: { opacity: 0, x: 50 },
             visible: { opacity: 1, x: 0 },
           }}
-          initial="hidden"
+          initial={motionInitial}
           animate={heroControls}
           transition={{ duration: 1.5 }}
           className="flex-1"
         >
-          <h1 className="md:text-sm text-xs font-bold text-[#0C4E1A] uppercase">
+          <p className="md:text-sm text-xs font-bold text-brand uppercase">
             Who We are
-          </h1>
+          </p>
           <h2 className="md:text-6xl text-3xl font-bold text-monochrome my-3">
             Advancing Sustainability in Waste Services
           </h2>
@@ -126,7 +129,7 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 ">
             {items.map((item, index) => (
               <div className="flex items-center gap-3" key={index}>
-                <CircleCheck className="h-5 w-5 stroke-[#0C4E1A]" />
+                <CircleCheck className="h-5 w-5 stroke-brand" />
                 <p>{item}</p>
               </div>
             ))}
@@ -137,7 +140,7 @@ const About = () => {
             hidden: { opacity: 0, x: -50 },
             visible: { opacity: 1, x: 0 },
           }}
-          initial="hidden"
+          initial={motionInitial}
           animate={heroControls}
           transition={{ duration: 1.5 }}
           className="h-[380px] md:w-[360px] w-full relative md:flex-1 rounded-sm"
@@ -153,21 +156,21 @@ const About = () => {
       {/* {commitment } */}
       <div
         ref={philosophyRef}
-        className="px-4 bg-[#0C4E1A] grid grid-cols-1 md:grid-cols-4 gap-10 py-20 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]"
+        className="bg-brand grid grid-cols-1 md:grid-cols-4 gap-10 py-20 page-x"
       >
         <motion.div
           variants={{
             hidden: { opacity: 0, y: 50 },
             visible: { opacity: 1, y: 0 },
           }}
-          initial="hidden"
+          initial={motionInitial}
           animate={philosophyControls}
           transition={{ duration: 1.5 }}
           className="md:col-span-2"
         >
-          <h1 className="text-white text-xs text-center md:text-left md:text-sm uppercase font-bold mb-3">
+          <p className="text-white text-xs text-center md:text-left md:text-sm uppercase font-bold mb-3">
             Our Commitment to Quality Services
-          </h1>
+          </p>
           <h2 className="md:text-6xl text-3xl text-center md:text-left font-bold text-white">
             World-Class Recycling & Waste Management
           </h2>
@@ -179,7 +182,7 @@ const About = () => {
               hidden: { opacity: 0, y: 50 },
               visible: { opacity: 1, y: 0 },
             }}
-            initial="hidden"
+            initial={motionInitial}
             animate={philosophyControls}
             transition={{ duration: 1.5 }}
             key={index}
@@ -196,9 +199,9 @@ const About = () => {
               </div>
             </div>
             <div>
-              <h2 className="text-[#0C4E1A] text-center font-bold text-xl my-3">
+              <h3 className="text-brand text-center font-bold text-xl my-3">
                 {commitment.title}
-              </h2>
+              </h3>
               <p className="text-base">{commitment.description}</p>
             </div>
           </motion.div>
@@ -216,7 +219,7 @@ const About = () => {
         />
         <div
           ref={metricRef}
-          className="h-full w-full z-10 flex justify-center md:justify-evenly items-center flex-col gap-12 md:flex-row bg-[#0C4E1A]/85 py-24 px-4 md:px-[40px] lg:px-[60px] xl:px-[60px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]"
+          className="h-full w-full z-10 flex justify-center md:justify-evenly items-center flex-col gap-12 md:flex-row bg-brand/85 py-24 page-x"
         >
           {metrics.map((metric, index) => (
             <motion.div
@@ -224,7 +227,7 @@ const About = () => {
                 hidden: { opacity: 0, y: 50 },
                 visible: { opacity: 1, y: 0 },
               }}
-              initial="hidden"
+              initial={motionInitial}
               animate={metricControl}
               transition={{ duration: 1.5 }}
               key={index}
@@ -248,15 +251,16 @@ const About = () => {
 
       {/* { contact us } */}
       <div
+        id="contact"
         ref={contactRef}
-        className="px-4 md:px-[40px] lg:px-[80px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px] w-full pt-20 pb-32 flex  gap-12 md:gap-20 md:flex-row flex-col"
+        className="scroll-mt-24 page-x w-full pt-20 pb-32 flex  gap-12 md:gap-20 md:flex-row flex-col"
       >
         <motion.div
           variants={{
             hidden: { opacity: 0, x: -50 },
             visible: { opacity: 1, x: 0 },
           }}
-          initial="hidden"
+          initial={motionInitial}
           animate={metricControl}
           transition={{ duration: 1.5 }}
           className="w-full flex-1"
@@ -268,17 +272,17 @@ const About = () => {
             hidden: { opacity: 0, x: 50 },
             visible: { opacity: 1, x: 0 },
           }}
-          initial="hidden"
+          initial={motionInitial}
           animate={metricControl}
           transition={{ duration: 1.5 }}
           className="flex-1"
         >
-          <h2 className="text-xs md:text-sm uppercase  font-bold text-[#0C4E1A] mb-2">
+          <p className="text-xs md:text-sm uppercase  font-bold text-brand mb-2">
             Need any help?
-          </h2>
-          <h3 className="text-monochrome text-2xl md:text-5xl font-bold mb-3">
+          </p>
+          <h2 className="text-monochrome text-2xl md:text-5xl font-bold mb-3">
             Get in touch with us
-          </h3>
+          </h2>
           <p>
             Got questions, ideas, or feedback? Let&apos;s connect! Whether
             you&apos;re curious about our services, have a project in mind, or
@@ -289,7 +293,7 @@ const About = () => {
           <div>
             {contact_details.map((contact, index) => (
               <div key={index} className="mt-6 flex items-center gap-6">
-                <div className="bg-[#0C4E1A] rounded-sm flex justify-center items-center flex-col h-16 w-16">
+                <div className="bg-brand rounded-sm flex justify-center items-center flex-col h-16 w-16">
                   <contact.icon className="h-8 w-8 stroke-white" />
                 </div>
                 <div>

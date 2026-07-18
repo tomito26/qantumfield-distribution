@@ -65,7 +65,7 @@ export const items = [
 export const services = [
   {
     id: 1,
-    title: "Waste  Disposal",
+    title: "Waste Disposal",
     description: "Proper disposal of general, recyclable, and hazardous waste.",
     image:
       "/assets/The-Benefits-of-Waste-Collection-Services-for-Your-Business-scaled.jpg",

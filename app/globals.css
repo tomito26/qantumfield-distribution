@@ -73,16 +73,25 @@ body {
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: hsl(212.7, 26.8%, 83.9);
+    --ring: 212.7 26.8% 83.9%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border text-tundora;
+    @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-tundora font-sans;
+  }
+}
+
+/* Canonical horizontal page padding — single source of truth for the
+   section gutters that were previously duplicated (and drifting) across
+   the navbar, footer, hero and content sections. */
+@layer components {
+  .page-x {
+    @apply px-4 md:px-[40px] lg:px-[80px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px];
   }
 }
 

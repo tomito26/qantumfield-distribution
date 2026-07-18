@@ -25,7 +25,16 @@ module.exports = {
       "5xl":"1670px"
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
+      },
       colors: {
+        brand: {
+          DEFAULT: "#0C4E1A",
+          dark: "#093813",
+          light: "#0F6322",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -72,7 +81,7 @@ module.exports = {
         "body-gray": "#64696D",
         "default-black": "#25282B",
         "app-destructive": "#F40B0B",
-        "destructive-light": "##F83737",
+        "destructive-light": "#F83737",
         "inactive-error": "#FEA0A0",
         "faint-error": "#F86666",
         monochromatic: "#101828",

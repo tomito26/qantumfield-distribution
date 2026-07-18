@@ -11,20 +11,27 @@ import {
 import FormFieldWithIcon from "@/components/ui/form-field-with-icon";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Asterisk, Mail } from "lucide-react";
+import { Asterisk, CheckCircle2, Mail } from "lucide-react";
 import validator from "validator";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import React from "react";
 
 
 const ContactFormSchema = z.object({
-  name: z.string(),
-  email:z.string().refine(validator.isEmail),
-  message: z.string()
+  name: z.string().min(2, { message: "Please enter your name." }),
+  email: z
+    .string()
+    .min(1, { message: "Email is required." })
+    .refine(validator.isEmail, { message: "Please enter a valid email address." }),
+  message: z
+    .string()
+    .min(10, { message: "Please enter a message of at least 10 characters." }),
 })
 
 const ContactUsForm = () => {
+  const [submitted, setSubmitted] = React.useState(false);
   const form = useForm<z.infer<typeof ContactFormSchema>>({
     resolver: zodResolver(ContactFormSchema),
     defaultValues: {
@@ -34,15 +41,19 @@ const ContactUsForm = () => {
     },
   });
 
-  const handleSendMessage = (data: z.infer<typeof ContactFormSchema>) => {
-    console.log(data)
+  const handleSendMessage = async (data: z.infer<typeof ContactFormSchema>) => {
+    // Client-only for now: no backend wired up yet.
+    await new Promise((resolve) => setTimeout(resolve, 600));
+    console.log(data);
+    setSubmitted(true);
+    form.reset();
   }
   return (
-        <div className="shrink-0 mt-">
-          <h2  className="text-xs md:text-sm uppercase  font-bold text-[#0C4E1A] mb-2">Send us an email</h2>
-          <h3 className="text-monochrome text-2xl md:text-5xl font-bold mb-3">
+        <div className="shrink-0">
+          <p className="text-xs md:text-sm uppercase  font-bold text-brand mb-2">Send us an email</p>
+          <h2 className="text-monochrome text-2xl md:text-5xl font-bold mb-3">
           Feel free to write
-          </h3>
+          </h2>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(handleSendMessage)} className="lg:w-full w-full">
               <div>
@@ -61,6 +72,7 @@ const ContactUsForm = () => {
                           className="text-[14px] w-full"
                         />
                       </FormControl>
+                      <FormMessage />
                     </FormItem>
                   )}
                 />
@@ -103,11 +115,27 @@ const ContactUsForm = () => {
                           className="text-[14px] h-[120px] resize-none"
                         />
                       </FormControl>
+                      <FormMessage />
                     </FormItem>
                   )}
                 />
               </div>
-              <Button className="bg-monochrome hover:bg-monochrome/90  mt-8">Send Message</Button>
+              <Button
+                type="submit"
+                disabled={form.formState.isSubmitting}
+                className="bg-monochrome hover:bg-monochrome/90 mt-8 disabled:opacity-60"
+              >
+                {form.formState.isSubmitting ? "Sending..." : "Send Message"}
+              </Button>
+              {submitted && (
+                <p
+                  role="status"
+                  className="mt-4 flex items-center gap-2 text-sm font-medium text-brand"
+                >
+                  <CheckCircle2 className="h-4 w-4 stroke-brand" />
+                  Thanks! Your message has been received.
+                </p>
+              )}
             </form>
           </Form>
         </div>

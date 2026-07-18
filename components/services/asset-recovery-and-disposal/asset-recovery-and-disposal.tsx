@@ -75,7 +75,7 @@ const AssetRecoveryAndDisposal = () => {
               {assets.map((asset) => (
                 <div key={asset.title} className="mb-4">
                   <div className="flex items-center gap-4">
-                    <Check className="stroke-[#0C4E1A] h-5 w-5" />
+                    <Check className="stroke-brand h-5 w-5" />
                     <h3 className="text-base font-bold">{asset.title}</h3>
                   </div>
                   <p className="text-base ml-9">{asset.description}</p>
@@ -102,7 +102,7 @@ const AssetRecoveryAndDisposal = () => {
                     />
                   </div>
                   <div>
-                    <h1 className="text-[#0C4E1A] font-bold">{item.title}</h1>
+                    <h3 className="text-brand font-bold">{item.title}</h3>
                     <p>{item.description}</p>
                   </div>
                 </div>
