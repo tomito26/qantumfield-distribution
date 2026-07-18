@@ -50,8 +50,8 @@ const ContactUsForm = () => {
   }
   return (
         <div className="shrink-0">
-          <p className="text-xs md:text-sm uppercase  font-bold text-brand mb-2">Send us an email</p>
-          <h2 className="text-monochrome text-2xl md:text-5xl font-bold mb-3">
+          <p className="eyebrow mb-3">Send us an email</p>
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-monochrome mb-5">
           Feel free to write
           </h2>
           <Form {...form}>
@@ -122,8 +122,10 @@ const ContactUsForm = () => {
               </div>
               <Button
                 type="submit"
+                variant="brand"
+                size="lg"
                 disabled={form.formState.isSubmitting}
-                className="bg-monochrome hover:bg-monochrome/90 mt-8 disabled:opacity-60"
+                className="mt-8 w-full disabled:opacity-60"
               >
                 {form.formState.isSubmitting ? "Sending..." : "Send Message"}
               </Button>

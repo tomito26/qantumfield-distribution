@@ -9,9 +9,7 @@ import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { usePathname } from "next/navigation";
@@ -19,110 +17,208 @@ import { usePathname } from "next/navigation";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = React.useState<boolean>(false);
+  const [scrolled, setScrolled] = React.useState(false);
 
   const pathname = usePathname();
 
-  // const handleDropdownToggle = (linkName: string) => {
-  //   setOpenMenu(openMenu === linkName ? null : linkName);
-  // };
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Lock body scroll while the mobile drawer is open.
+  React.useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
 
   const handleLinkClick = () => {
     setMenuOpen(false);
     setMobileMenuOpen(false);
   };
 
-  const handleMobileMenuToggle = () => {
-    setMobileMenuOpen(!isMobileMenuOpen);
-  };
+  const serviceLinks =
+    links.find((l) => l.subLink && l.subLink.length > 0)?.subLink ?? [];
 
   return (
-    <nav className="flex justify-between absolute w-full  bg-white z-30 shadow-sm  items-center  flex-col md:flex-row  h-[92px] page-x">
-      <div className="flex justify-between h-full w-full items-center">
-        <div className="relative h-[60px] w-[190px] md:h-[60px] md:w-[190px]">
+    <header
+      className={cn(
+        "fixed top-0 left-0 z-40 w-full transition-all duration-300 page-x",
+        scrolled
+          ? "bg-white/90 backdrop-blur-md shadow-[0_4px_24px_-16px_rgba(6,40,15,0.4)] border-b border-black/[0.06]"
+          : "bg-white/80 backdrop-blur-sm border-b border-transparent"
+      )}
+    >
+      <nav className="flex h-[80px] items-center justify-between">
+        {/* Logo */}
+        <Link
+          href="/"
+          className="relative h-[48px] w-[168px] shrink-0"
+          onClick={handleLinkClick}
+        >
           <Image
             src="/assets/quantumfield-logo.png"
             fill
-            alt="Quantum Field Distribution logo"
-            className="absolute z-30 object-contain object-left"
+            alt="Quantumfield Distribution logo"
+            className="object-contain object-left"
+            priority
           />
-        </div>
-        <button
-            className="mr-4 shrink-0 z-30 md:hidden"
-            onClick={handleMobileMenuToggle}
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6 stroke-body-gray" />
-            ) : (
-              <Menu className="w-6 h-6  stroke-body-gray" />
-            )}
-          </button>
-      </div>
-      <ul className={cn(isMobileMenuOpen ? "flex items-center bg-white md:bg-transparent  w-full justify-center flex-col z-10 absolute md:relative top-[90px] md:top-0  space-y-10 md:space-y-0" :  "hidden md:flex"," items-center justify-center  md:space-x-10  md:relative md:flex-row pt-6 md:pt-0 pb-4 md:pb-0 md:h-full z-50 ")}>
-        {links.map(({ title, subLink, link }) =>
-          link ? (
-            <li key={title} className="inline-flex items-center h-full">
-              <Link
-                href={link}
-                className={cn("text-base font-medium hover:text-brand md:hover:text-brand  md:text-monochrome hover:border-b-2 border-b-brand text-center  px-1 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2", pathname === link && "border-b-2 text-brand")}
-                onClick={() => handleLinkClick()}
-              >
-                {title}
-              </Link>
-            </li>
-          ) : (
-            subLink &&
-            subLink.length > 0 && (
-              <DropdownMenu
-                onOpenChange={() => setMenuOpen(!menuOpen)}
-                open={menuOpen}
-                key={title}
-              >
-                <DropdownMenuTrigger
+        </Link>
+
+        {/* Desktop nav */}
+        <ul className="hidden items-center gap-8 md:flex">
+          {links.map(({ title, subLink, link }) =>
+            link ? (
+              <li key={title}>
+                <Link
+                  href={link}
                   className={cn(
-                    "cursor-pointer p-0 border-none outline-none rounded-sm focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 relative flex items-center justify-center transition-all "
+                    "relative text-[15px] font-medium text-monochrome transition-colors hover:text-brand after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-leaf after:transition-all after:duration-300 hover:after:w-full",
+                    pathname === link && "text-brand after:w-full"
                   )}
-                  aria-haspopup="true"
-                  aria-expanded={menuOpen}
                 >
-                  <div className="flex items-center justify-center flex-row gap-x-2 hover:border-b-2 border-brand px-1">
-                    <span className="text-base text-center font-medium md:text-monochrome hover:text-brand inline-flex items-center">
+                  {title}
+                </Link>
+              </li>
+            ) : (
+              subLink &&
+              subLink.length > 0 && (
+                <li key={title}>
+                  <DropdownMenu open={menuOpen} onOpenChange={setMenuOpen}>
+                    <DropdownMenuTrigger
+                      className="group flex items-center gap-1.5 text-[15px] font-medium text-monochrome outline-none transition-colors hover:text-brand data-[state=open]:text-brand"
+                      aria-haspopup="true"
+                    >
                       {title}
-                    </span>
-                    <ChevronDown
-                      className={cn(
-                        "transition-transform duration-200 stroke-body-gray md:stroke-body-gray",
-                        menuOpen ? "rotate-180" : "rotate-0"
-                      )}
-                    />
-                  </div>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-[240px] rounded-t-none  left-0 -bottom-32 bg-white mt-5">
-                  {subLink.map((item) =>
-                    item.link ? ( // Check if item.link exists
-                      <DropdownMenuGroup key={item.title}>
-                        <Link href={item.link} className="w-full" onClick={() =>handleLinkClick()}>
-                          <DropdownMenuItem className="cursor-pointer group">
-                            <span className="text-[14px] font-[500] text-body-gray hover:text-brand">
+                      <ChevronDown className="h-4 w-4 stroke-current transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent
+                      align="start"
+                      sideOffset={18}
+                      className="w-[320px] rounded-2xl border-black/5 p-2 shadow-lift"
+                    >
+                      {serviceLinks.map((item) => (
+                        <Link
+                          key={item.title}
+                          href={item.link}
+                          onClick={handleLinkClick}
+                        >
+                          <DropdownMenuItem className="cursor-pointer gap-3 rounded-xl p-2.5 focus:bg-canvas">
+                            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand">
+                              {item.image && item.image.endsWith(".png") ? (
+                                <span className="relative h-5 w-5">
+                                  <Image
+                                    src={item.image}
+                                    alt=""
+                                    fill
+                                    className="object-contain"
+                                  />
+                                </span>
+                              ) : (
+                                <span className="h-2 w-2 rounded-full bg-brand" />
+                              )}
+                            </span>
+                            <span
+                              className={cn(
+                                "text-[14px] font-medium text-body-gray transition-colors group-hover:text-brand",
+                                pathname === item.link && "text-brand"
+                              )}
+                            >
                               {item.title}
                             </span>
                           </DropdownMenuItem>
                         </Link>
-                        <DropdownMenuSeparator />
-                      </DropdownMenuGroup>
-                    ) : null
-                  )}
-                </DropdownMenuContent>
-              </DropdownMenu>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </li>
+              )
             )
-          )
+          )}
+          <li>
+            <Link href="/about#contact">
+              <Button variant="accent">Get a Quote</Button>
+            </Link>
+          </li>
+        </ul>
+
+        {/* Mobile toggle */}
+        <button
+          className="z-50 md:hidden"
+          onClick={() => setMobileMenuOpen((o) => !o)}
+          aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+        >
+          {isMobileMenuOpen ? (
+            <X className="h-7 w-7 stroke-monochrome" />
+          ) : (
+            <Menu className="h-7 w-7 stroke-monochrome" />
+          )}
+        </button>
+      </nav>
+
+      {/* Mobile drawer */}
+      <div
+        className={cn(
+          "fixed inset-x-0 top-[80px] bottom-0 z-40 origin-top bg-white transition-all duration-300 md:hidden",
+          isMobileMenuOpen
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none -translate-y-2 opacity-0"
         )}
-        <Link href="/about#contact" onClick={() => handleLinkClick()}>
-          <Button className="shrink-0 bg-brand text-white text-base font-medium hover:bg-brand-dark">
-            Contact Us
-          </Button>
-        </Link>
-      </ul>
-    </nav>
+      >
+        <ul className="flex flex-col gap-1 page-x py-8">
+          {links.map(({ title, subLink, link }) =>
+            link ? (
+              <li key={title}>
+                <Link
+                  href={link}
+                  onClick={handleLinkClick}
+                  className={cn(
+                    "block border-b border-black/5 py-4 text-lg font-medium text-monochrome",
+                    pathname === link && "text-brand"
+                  )}
+                >
+                  {title}
+                </Link>
+              </li>
+            ) : (
+              subLink && (
+                <li key={title} className="border-b border-black/5 py-4">
+                  <p className="mb-2 text-lg font-medium text-monochrome">
+                    {title}
+                  </p>
+                  <div className="flex flex-col gap-1 pl-3">
+                    {serviceLinks.map((item) => (
+                      <Link
+                        key={item.title}
+                        href={item.link}
+                        onClick={handleLinkClick}
+                        className={cn(
+                          "py-2 text-base text-body-gray",
+                          pathname === item.link && "text-brand"
+                        )}
+                      >
+                        {item.title}
+                      </Link>
+                    ))}
+                  </div>
+                </li>
+              )
+            )
+          )}
+          <li className="pt-6">
+            <Link href="/about#contact" onClick={handleLinkClick}>
+              <Button variant="accent" size="lg" className="w-full">
+                Get a Quote
+              </Button>
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </header>
   );
 };
 

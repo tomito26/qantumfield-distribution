@@ -27,6 +27,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "var(--font-geist-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
       },
       colors: {
@@ -34,6 +35,24 @@ module.exports = {
           DEFAULT: "#0C4E1A",
           dark: "#093813",
           light: "#0F6322",
+        },
+        // Deep green ink for dark sections & footer (replaces pure black).
+        forest: {
+          DEFAULT: "#06280F",
+          light: "#0A3A18",
+        },
+        // Light sage canvas for alternating section backgrounds.
+        canvas: "#EEF4EC",
+        // Fresh lime accent — the single restrained accent that lifts the
+        // palette out of monotone green (stays in the green family). Used for
+        // eyebrows, CTAs, stats, underlines, hover states. Named `leaf` (not
+        // `accent`, which clashes with the shadcn token; not `lime`, which
+        // would shadow Tailwind's built-in lime scale). Bright DEFAULT is used
+        // on dark surfaces; `dark` (deep olive) is used for small text/rules on
+        // white and for button hover.
+        leaf: {
+          DEFAULT: "#84CC16",
+          dark: "#4D7C0F",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -103,6 +122,17 @@ module.exports = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      boxShadow: {
+        // Soft, low-contrast elevation for the card system.
+        soft: "0 1px 2px rgba(6, 40, 15, 0.04), 0 8px 24px -12px rgba(6, 40, 15, 0.14)",
+        lift: "0 12px 32px -12px rgba(6, 40, 15, 0.22)",
+      },
+      backgroundImage: {
+        // Signature CTA gradient (forest → brand) and hero legibility overlay.
+        "cta-band": "linear-gradient(120deg, #06280F 0%, #0C4E1A 55%, #0F6322 100%)",
+        "hero-overlay":
+          "linear-gradient(105deg, rgba(6,40,15,0.92) 0%, rgba(9,56,19,0.72) 40%, rgba(12,78,34,0.25) 100%)",
       },
       keyframes: {
         "accordion-down": {
