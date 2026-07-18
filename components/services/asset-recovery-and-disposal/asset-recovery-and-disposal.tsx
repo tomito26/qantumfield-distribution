@@ -1,9 +1,8 @@
-import ContactUsForm from "@/components/forms/contact-us-form";
-import { Check } from "lucide-react";
-import Image from "next/image";
+import ServiceContent from "@/components/services/libs/service-content";
+import { Boxes, Recycle, Settings2, Lock } from "lucide-react";
 
 const AssetRecoveryAndDisposal = () => {
-  const assets = [
+  const highlights = [
     {
       title: "Office Equipment",
       description:
@@ -17,102 +16,47 @@ const AssetRecoveryAndDisposal = () => {
     {
       title: "Data Security",
       description:
-        "Ensures that electronic devices are cleared of sensitive data during the recovery process.",
+        "Ensures electronic devices are cleared of sensitive data during the recovery process.",
     },
   ];
 
-  const items = [
+  const features = [
     {
       title: "Comprehensive Solutions",
       description:
-        " Manages all aspects of asset recovery, including collection, refurbishment, recycling, and disposal",
-      image: "/assets/Business-Coaching-Idea-Jigsaw--Streamline-Freehand.svg",
+        "Collection, refurbishment, recycling, and disposal end to end.",
+      icon: Boxes,
     },
     {
       title: "Environmental Responsibility",
-      description:
-        "Reduces waste and environmental impact through sustainable practices.",
-      image: "/assets/Recycling-Sign--Streamline-Ultimate.png",
+      description: "Reduces waste and impact through sustainable practices.",
+      icon: Recycle,
     },
     {
       title: "Tailored Services",
       description:
-        "Custom solutions to meet the unique needs of businesses, institutions, and individuals",
-      image: "/assets/Cog-Double--Streamline-Core.png",
+        "Custom solutions for businesses, institutions, and individuals.",
+      icon: Settings2,
     },
     {
       title: "Focus on Security",
       description:
-        "Ensures secure handling of sensitive data and compliance with data protection laws.",
-      image: "/assets/Database-Shield--Streamline-Core.png",
+        "Secure handling of sensitive data and full compliance with data laws.",
+      icon: Lock,
     },
   ];
+
   return (
-    <div>
-      {" "}
-      <div className="w-full">
-        <div className="w-full  gap-10">
-          <h2 className="md:text-6xl text-3xl font-bold text-monochrome mb-3">
-            Asset Recovery and Disposal Services
-          </h2>
-          <div className="h-[240px] md:h-[380px]  w-full relative  rounded-sm">
-            <Image
-              src="/assets/assortment-dirty-dumped-objects (1).jpg"
-              alt="garbarge collection"
-              fill
-              className="absolute object-cover rounded"
-            />
-          </div>
-          <div className="">
-            <p className="text-base my-6">
-              We offer comprehensive asset recovery and disposal services
-              designed to help organizations manage their outdated, surplus, or
-              unwanted assets effectively. By focusing on reuse, recycling, and
-              secure disposal, the company ensures maximum value recovery while
-              prioritizing environmental sustainability.Key aspects include:
-            </p>
-            <div className="">
-              {assets.map((asset) => (
-                <div key={asset.title} className="mb-4">
-                  <div className="flex items-center gap-4">
-                    <Check className="stroke-brand h-5 w-5" />
-                    <h3 className="text-base font-bold">{asset.title}</h3>
-                  </div>
-                  <p className="text-base ml-9">{asset.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="mb-6">
-            <h2 className="text-2xl my-4 font-bold text-monochrome">
-              Why Choose us for Asset Recovery
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {items.map((item) => (
-                <div
-                  key={item.title}
-                  className="border flex items-center gap-4 p-4"
-                >
-                  <div className="relative h-10 w-10 shrink-0">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover absolute"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="text-brand font-bold">{item.title}</h3>
-                    <p>{item.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <ContactUsForm />
-        </div>
-      </div>
-    </div>
+    <ServiceContent
+      title="Asset Recovery and Disposal"
+      image="/assets/assortment-dirty-dumped-objects (1).jpg"
+      intro={[
+        "We offer comprehensive asset recovery and disposal services designed to help organizations manage their outdated, surplus, or unwanted assets effectively. By focusing on reuse, recycling, and secure disposal, we ensure maximum value recovery while prioritizing environmental sustainability.",
+      ]}
+      highlights={highlights}
+      whyTitle="Why choose us for asset recovery"
+      features={features}
+    />
   );
 };
 

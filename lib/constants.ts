@@ -1,4 +1,25 @@
-import { BadgeCheck, Users, Building2, Phone, Mail, MapPin } from "lucide-react";
+import {
+  BadgeCheck,
+  Users,
+  Building2,
+  Phone,
+  Mail,
+  MapPin,
+  Award,
+  TrendingUp,
+  Lightbulb,
+  HeartHandshake,
+  Target,
+  Telescope,
+  CalendarClock,
+  Truck,
+  Recycle,
+  ShieldCheck,
+  FileCheck2,
+  Leaf,
+  Globe2,
+  type LucideIcon,
+} from "lucide-react";
 
 export const links = [
   {
@@ -97,33 +118,37 @@ export const services = [
   },
 ];
 
-export const reasons = [
+export const reasons: {
+  id: number;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}[] = [
   {
     id: 1,
     title: "Unmatched Expertise",
     description:
-      "Skilled environmental specialists delivering quality results.",
-    image: "/assets/Notes-Settings--Streamline-Ultimate.png",
+      "Skilled environmental specialists delivering measurable, audit-ready results.",
+    icon: Award,
   },
   {
     id: 2,
     title: "Proven Results",
-    description: "Tangible, measurable environmental impact.",
-    image:
-      "/assets/Presentation-Projector-Screen-Pie-Chart--Streamline-Ultimate.png",
+    description: "Tangible, measurable environmental impact across every engagement.",
+    icon: TrendingUp,
   },
   {
     id: 3,
     title: "Innovative Approach",
     description:
-      "Creative, technology-driven solutions to environmental challenges.",
-    image: "/assets/Bulb-1--Streamline-Ultimate (1).png",
+      "Creative, technology-driven solutions to complex environmental challenges.",
+    icon: Lightbulb,
   },
   {
     id: 4,
     title: "Community-Centric",
-    description: " Empowering and uplifting local communities.",
-    image: "/assets/Network-Users--Streamline-Ultimate.png",
+    description: "Empowering and uplifting the communities we operate in.",
+    icon: HeartHandshake,
   },
 ];
 export const comments = [
@@ -190,44 +215,124 @@ export const our_partners = [
   },
 ];
 
-export const our_processes = [
+export const our_processes: {
+  title: string;
+  icon: LucideIcon;
+  description: string;
+}[] = [
   {
     title: "Schedule a Pickup",
-    image: "/assets/Calendar-Edit-1--Streamline-Ultimate.png",
+    icon: CalendarClock,
     description:
-      "Get in touch with us to schedule a pickup day that works for you. We'll discuss your waste management needs and recommend a solution that's tailored to your specific requirements.",
+      "Get in touch to schedule a collection that works for you. We'll assess your waste streams and recommend a solution tailored to your requirements and compliance needs.",
   },
   {
     title: "Pickup and Transport",
-    image: "/assets/Delivery-Truck-2--Streamline-Ultimate.png",
+    icon: Truck,
     description:
-      "On the scheduled date, our team will arrive at your premises to collect your waste. We'll sort and separate the recyclable materials from the non-recyclable ones.",
+      "Our team arrives on the scheduled date to collect your waste, sorting and separating recyclable materials from non-recyclable ones under full chain-of-custody.",
   },
   {
-    title: "Waste Recycling",
-    image: "/assets/Recycling-Sign--Streamline-Ultimate.png",
+    title: "Recycle & Recover",
+    icon: Recycle,
     description:
-      " We take recycling seriously. The materials we collect are transported to our recycling facility, where they are sorted, processed, and repurposed into new products.",
+      "Collected materials are transported to our facilities, where they are sorted, processed, and repurposed into new products — with disposal certificates issued on request.",
   },
 ];
-export const commitments = [
+export const commitments: {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}[] = [
   {
     title: "Our Mission",
     description:
-      "To contribute to a cleaner, greener planet by delivering  innovative and responsible recycling and waste disposal solutions that benefit clients and the environment.",
-    icon: "/assets/Target-Center-1--Streamline-Ultimate.png",
+      "To contribute to a cleaner, greener planet by delivering innovative and responsible recycling and waste disposal solutions that benefit clients and the environment.",
+    icon: Target,
   },
   {
     title: "Our Vision",
     description:
       "To be a global leader in environmental conservation and waste management, fostering a sustainable future for generations to come.",
-    icon: "/assets/Astronomy-Telescope--Streamline-Ultimate.png",
+    icon: Telescope,
   },
 ];
 export const metrics = [
-  { title: "20", description: "Years Experience", icon: BadgeCheck },
-  { title: "3000", description: "Satisfied Clients", icon: Users },
-  { title: "10", description: "Industries Served", icon: Building2 },
+  { title: "20", suffix: "+", description: "Years of Experience", icon: BadgeCheck },
+  { title: "3000", suffix: "+", description: "Clients Served", icon: Users },
+  { title: "10", suffix: "+", description: "Industries Served", icon: Building2 },
+];
+
+// Per-service hero metadata — single source for the service page hero
+// (title, breadcrumb label, hero image, intro). Keyed by route path so the
+// hero component can do a simple lookup instead of nested ternaries.
+export const service_meta: Record<
+  string,
+  { title: string; heroImage: string; tagline: string }
+> = {
+  "/waste-disposal": {
+    title: "Waste Disposal",
+    heroImage: "/assets/USE-105-garbage-dump-truck-1.jpg",
+    tagline:
+      "Responsible, compliant disposal of general, hazardous, and specialised waste streams.",
+  },
+  "/recycling-solutions": {
+    title: "Recycling Solutions",
+    heroImage: "/assets/UNDP-Jordan-2019-women-recycling-1304_2.jpg",
+    tagline:
+      "Sorting and recycling programmes that divert materials from landfill and close the loop.",
+  },
+  "/asset-recovery-and-disposal": {
+    title: "Asset Recovery and Disposal",
+    heroImage: "/assets/gettyimages-494832555-scaled.webp",
+    tagline:
+      "Secure recovery and value extraction from e-waste, plastics, and end-of-life assets.",
+  },
+  "/environmental-consulting": {
+    title: "Environmental Consulting",
+    heroImage: "/assets/business-partners-discussing-contract-terms.jpg",
+    tagline:
+      "Waste audits, strategy, and compliance guidance to hit your sustainability targets.",
+  },
+};
+
+// Global-reach framing. NOTE: figures below are illustrative capability
+// framing — replace with verified numbers before publishing.
+export const global_reach = {
+  eyebrow: "Global Reach, Local Expertise",
+  title: "Trusted to manage waste at scale",
+  description:
+    "From our base in Nairobi, we partner with businesses, institutions, and governments to deliver waste, recycling, and environmental services to international standards — combining on-the-ground operational know-how with globally benchmarked processes.",
+  highlights: [
+    { value: "25", suffix: "K+", label: "Tonnes of waste diverted each year" },
+    { value: "98", suffix: "%", label: "Client compliance & retention rate" },
+    { value: "24", suffix: "/7", label: "Operational support and collection" },
+  ],
+};
+
+// Standards / compliance strip. NOTE: confirm exact certifications and
+// accreditations with the business before publishing these publicly.
+export const standards: { title: string; description: string; icon: LucideIcon }[] = [
+  {
+    title: "Regulatory Compliance",
+    description: "Operations aligned with local and international environmental law.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Chain-of-Custody",
+    description: "Full traceability and duty-of-care documentation on every job.",
+    icon: FileCheck2,
+  },
+  {
+    title: "Sustainable by Design",
+    description: "Landfill diversion and circular-economy principles built in.",
+    icon: Leaf,
+  },
+  {
+    title: "Globally Benchmarked",
+    description: "Processes measured against recognised international standards.",
+    icon: Globe2,
+  },
 ];
 export const contact_details = [
   {

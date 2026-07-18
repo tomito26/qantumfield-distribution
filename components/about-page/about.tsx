@@ -8,307 +8,214 @@ import "swiper/css/pagination";
 import ContactUsForm from "../forms/contact-us-form";
 import HowToGetOurServices from "./lib/how-to-get-our-services";
 import AnimatedCounter from "@/components/home-page/libs/animated-counter";
-import { motion, useInView, useAnimation, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion, type Variants } from "motion/react";
 import React from "react";
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: { opacity: 1, y: 0 },
+};
 
 const About = () => {
   const shouldReduceMotion = useReducedMotion();
-  const motionInitial = shouldReduceMotion ? "visible" : "hidden";
-  const ref = React.useRef(null);
-  const aboutUsRef = React.useRef(null);
-  const philosophyRef = React.useRef(null);
-  const metricRef = React.useRef(null);
-  const contactRef = React.useRef(null);
-  const heroInView = useInView(ref, { once: true });
-  const heroControls = useAnimation();
-  const AboutInView = useInView(aboutUsRef, { once: true });
-  const aboutControls = useAnimation();
-  const philosophyInView = useInView(philosophyRef, { once: true });
-  const philosophyControls = useAnimation();
-  const metricInView = useInView(metricRef, { once: true });
-  const metricControl = useAnimation();
-  const contactView = useInView(contactRef, { once: true });
-  const contactControls = useAnimation();
+  const initial = shouldReduceMotion ? "visible" : "hidden";
+  const viewport = { once: true, margin: "-80px" } as const;
 
-  React.useEffect(() => {
-    if (heroInView) {
-      heroControls.start("visible");
-    }
-  }, [heroControls, heroInView]);
-
-  React.useEffect(() => {
-    if (AboutInView) {
-      aboutControls.start("visible");
-    }
-  }, [AboutInView, aboutControls]);
-
-  React.useEffect(() => {
-    if (philosophyInView) {
-      philosophyControls.start("visible");
-    }
-  }, [philosophyControls, philosophyInView]);
-
-  React.useEffect(() => {
-    if (metricInView) {
-      metricControl.start("visible");
-    }
-  }, [metricControl, metricInView]);
-
-  React.useEffect(() => {
-    if (contactView) {
-      contactControls.start("visible");
-    }
-  }, [contactControls, contactView]);
   return (
-    <div>
-      <div className="h-[500px] w-full relative">
+    <div className="overflow-hidden">
+      {/* Hero */}
+      <section className="relative flex h-[440px] w-full items-center overflow-hidden md:h-[520px]">
         <Image
           src="/assets/The-Benefits-of-Waste-Collection-Services-for-Your-Business-scaled.jpg"
-          alt=""
+          alt="About Quantumfield Distribution"
           fill
           priority
-          className="absolute object-cover"
+          className="object-cover"
         />
-        <div
-          ref={ref}
-          className="bg-brand/70 h-full flex items-center w-full z-10 absolute page-x"
+        <div className="absolute inset-0 bg-hero-overlay" />
+        <motion.div
+          variants={fadeUp}
+          initial={initial}
+          animate="visible"
+          transition={{ duration: 0.6 }}
+          className="relative z-10 w-full page-x pt-16"
         >
+          <p className="eyebrow eyebrow-light mb-4">Who We Are</p>
+          <h1 className="font-display text-4xl font-bold tracking-tight text-white md:text-6xl">
+            About Us
+          </h1>
+          <p className="mt-4 flex items-center gap-1 text-white/80">
+            <Link href="/" className="transition-colors hover:text-gold">
+              Home
+            </Link>
+            <ChevronRight className="h-4 w-4 stroke-white/60" />
+            <span className="text-gold">About</span>
+          </p>
+        </motion.div>
+      </section>
+
+      {/* Who we are */}
+      <section className="section-y page-x">
+        <div className="flex flex-col items-center gap-12 md:flex-row lg:gap-20">
           <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 50 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            initial={motionInitial}
-            animate={heroControls}
-            transition={{ duration: 1 }}
+            variants={fadeUp}
+            initial={initial}
+            whileInView="visible"
+            viewport={viewport}
+            transition={{ duration: 0.5 }}
+            className="flex-1"
           >
-            <h1 className="md:text-6xl text-3xl font-bold text-white mb-6">
-              About Us
-            </h1>
-            <p className="text-white flex text-base md:w-7/12">
-              <Link
-                href="/"
-                className="text-white hover:text-white/70 text-base"
-              >
-                Home
-              </Link>{" "}
-              <ChevronRight className="h-6 w-6 stroke-white" /> About
+            <p className="eyebrow mb-4">Who We Are</p>
+            <h2 className="section-title">
+              Advancing sustainability in waste services
+            </h2>
+            <p className="mt-5 measure text-body-gray">
+              We are a reliable provider of sustainable waste management
+              solutions. We offer a comprehensive suite of services — including
+              acquisition, responsible disposal, and recycling of a wide range
+              of waste and obsolete materials. Our operations are conducted with
+              the utmost commitment to professionalism, safety, and
+              environmental responsibility.
             </p>
+            <div className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {items.map((item) => (
+                <div className="flex items-center gap-3" key={item}>
+                  <CircleCheck className="h-5 w-5 shrink-0 stroke-brand" />
+                  <p className="text-monochrome">{item}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+          <motion.div
+            variants={fadeUp}
+            initial={initial}
+            whileInView="visible"
+            viewport={viewport}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl shadow-soft md:flex-1"
+          >
+            <Image
+              src="/assets/istockphoto-1410016214-612x612.jpg"
+              alt="Waste collection in progress"
+              fill
+              className="object-cover"
+            />
           </motion.div>
         </div>
-      </div>
-      {/* about us  */}
-      <div
-        ref={aboutUsRef}
-        className="flex flex-col md:flex-row-reverse justify-between items-center gap-10 pt-20 pb-24 page-x"
-      >
-        <motion.div
-          variants={{
-            hidden: { opacity: 0, x: 50 },
-            visible: { opacity: 1, x: 0 },
-          }}
-          initial={motionInitial}
-          animate={heroControls}
-          transition={{ duration: 1.5 }}
-          className="flex-1"
-        >
-          <p className="md:text-sm text-xs font-bold text-brand uppercase">
-            Who We are
-          </p>
-          <h2 className="md:text-6xl text-3xl font-bold text-monochrome my-3">
-            Advancing Sustainability in Waste Services
-          </h2>
-          <p className="text-base mb-4">
-            We are a reliable provider of sustainable waste management
-            solutions. We offer a comprehensive suite of services, including
-            acquisition, responsible disposal, and recycling of a wide range of
-            waste and obsolete materials. Our operations are conducted with the
-            utmost commitment to professionalism, safety, and environmental
-            responsibility.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 ">
-            {items.map((item, index) => (
-              <div className="flex items-center gap-3" key={index}>
-                <CircleCheck className="h-5 w-5 stroke-brand" />
-                <p>{item}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-        <motion.div
-          variants={{
-            hidden: { opacity: 0, x: -50 },
-            visible: { opacity: 1, x: 0 },
-          }}
-          initial={motionInitial}
-          animate={heroControls}
-          transition={{ duration: 1.5 }}
-          className="h-[380px] md:w-[360px] w-full relative md:flex-1 rounded-sm"
-        >
-          <Image
-            src="/assets/istockphoto-1410016214-612x612.jpg"
-            alt="garbarge collection"
-            fill
-            className="absolute object-cover rounded"
-          />
-        </motion.div>
-      </div>
-      {/* {commitment } */}
-      <div
-        ref={philosophyRef}
-        className="bg-brand grid grid-cols-1 md:grid-cols-4 gap-10 py-20 page-x"
-      >
-        <motion.div
-          variants={{
-            hidden: { opacity: 0, y: 50 },
-            visible: { opacity: 1, y: 0 },
-          }}
-          initial={motionInitial}
-          animate={philosophyControls}
-          transition={{ duration: 1.5 }}
-          className="md:col-span-2"
-        >
-          <p className="text-white text-xs text-center md:text-left md:text-sm uppercase font-bold mb-3">
-            Our Commitment to Quality Services
-          </p>
-          <h2 className="md:text-6xl text-3xl text-center md:text-left font-bold text-white">
-            World-Class Recycling & Waste Management
-          </h2>
-        </motion.div>
+      </section>
 
-        {commitments.map((commitment, index) => (
+      {/* Mission & Vision */}
+      <section className="bg-canvas section-y page-x">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 50 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            initial={motionInitial}
-            animate={philosophyControls}
-            transition={{ duration: 1.5 }}
-            key={index}
-            className=" bg-white  h-[300px] w-full px-4 py-5 rounded-md"
+            variants={fadeUp}
+            initial={initial}
+            whileInView="visible"
+            viewport={viewport}
+            transition={{ duration: 0.5 }}
+            className="lg:pr-6"
           >
-            <div className="flex justify-center">
-              <div className="h-12 w-12 relative">
-                <Image
-                  src={commitment.icon}
-                  alt={commitment.title}
-                  fill
-                  className="absolute object-cover"
-                />
-              </div>
-            </div>
-            <div>
-              <h3 className="text-brand text-center font-bold text-xl my-3">
+            <p className="eyebrow mb-4">Our Commitment</p>
+            <h2 className="section-title">
+              World-class recycling &amp; waste management
+            </h2>
+            <p className="mt-4 text-body-gray">
+              Guided by a clear mission and vision, we hold ourselves to
+              international standards on every engagement.
+            </p>
+          </motion.div>
+
+          {commitments.map((commitment, index) => (
+            <motion.div
+              key={commitment.title}
+              variants={fadeUp}
+              initial={initial}
+              whileInView="visible"
+              viewport={viewport}
+              transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
+              className="card flex flex-col p-8"
+            >
+              <span className="icon-tile mb-5 h-14 w-14 rounded-2xl">
+                <commitment.icon className="h-7 w-7" />
+              </span>
+              <h3 className="font-display text-xl font-semibold text-monochrome">
                 {commitment.title}
               </h3>
-              <p className="text-base">{commitment.description}</p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-      {/* {process}  */}
-      <HowToGetOurServices />
-      {/* {core metrics} */}
-      <div className="flex h-full w-full relative justify-center flex-col md:flex-row  md:justify-evenly items-center">
-        <Image
-          src="/assets/man-throwing-plastic-bottle-recycle-trash-can.jpg"
-          fill
-          alt=""
-          className="absolute object-cover"
-        />
-        <div
-          ref={metricRef}
-          className="h-full w-full z-10 flex justify-center md:justify-evenly items-center flex-col gap-12 md:flex-row bg-brand/85 py-24 page-x"
-        >
-          {metrics.map((metric, index) => (
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 50 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              initial={motionInitial}
-              animate={metricControl}
-              transition={{ duration: 1.5 }}
-              key={index}
-              className="flex items-center  gap-2"
-            >
-              <metric.icon className="stroke-white h-10 w-10" />
-              <div className="flex flex-col">
-                <AnimatedCounter
-                  target={parseInt(metric.title)}
-                  duration={5000}
-                />
-                <p className="text-base font-medium text-white">
-                  {metric.description}
-                </p>
-              </div>
+              <p className="mt-3 text-body-gray">{commitment.description}</p>
             </motion.div>
           ))}
         </div>
-      </div>
-      {/* our clients  */}
+      </section>
 
-      {/* { contact us } */}
-      <div
+      {/* Process */}
+      <HowToGetOurServices />
+
+      {/* Metrics band */}
+      <section className="bg-cta-band section-y page-x">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
+          {metrics.map((metric) => (
+            <div
+              key={metric.description}
+              className="flex flex-col items-center gap-3 text-center"
+            >
+              <metric.icon className="h-10 w-10 stroke-gold" />
+              <AnimatedCounter target={parseInt(metric.title)} duration={1600} />
+              <p className="font-medium text-white/80">{metric.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section
         id="contact"
-        ref={contactRef}
-        className="scroll-mt-24 page-x w-full pt-20 pb-32 flex  gap-12 md:gap-20 md:flex-row flex-col"
+        className="scroll-mt-24 section-y page-x flex flex-col gap-12 md:flex-row md:gap-16"
       >
         <motion.div
-          variants={{
-            hidden: { opacity: 0, x: -50 },
-            visible: { opacity: 1, x: 0 },
-          }}
-          initial={motionInitial}
-          animate={metricControl}
-          transition={{ duration: 1.5 }}
-          className="w-full flex-1"
-        >
-          <ContactUsForm />
-        </motion.div>
-        <motion.div
-          variants={{
-            hidden: { opacity: 0, x: 50 },
-            visible: { opacity: 1, x: 0 },
-          }}
-          initial={motionInitial}
-          animate={metricControl}
-          transition={{ duration: 1.5 }}
+          variants={fadeUp}
+          initial={initial}
+          whileInView="visible"
+          viewport={viewport}
+          transition={{ duration: 0.5 }}
           className="flex-1"
         >
-          <p className="text-xs md:text-sm uppercase  font-bold text-brand mb-2">
-            Need any help?
+          <p className="eyebrow mb-2">Need Any Help?</p>
+          <h2 className="section-title">Get in touch with us</h2>
+          <p className="mt-5 measure text-body-gray">
+            Got questions, ideas, or feedback? Whether you&apos;re curious about
+            our services, have a project in mind, or just want to say hello,
+            we&apos;re here for you. Reach out and our team will explore how we
+            can work together.
           </p>
-          <h2 className="text-monochrome text-2xl md:text-5xl font-bold mb-3">
-            Get in touch with us
-          </h2>
-          <p>
-            Got questions, ideas, or feedback? Let&apos;s connect! Whether
-            you&apos;re curious about our services, have a project in mind, or
-            just want to say hello, we&apos;re here for you. Reach out through
-            our contact info or drop us a message, our team is ready to assist
-            and explore how we can work together.
-          </p>
-          <div>
-            {contact_details.map((contact, index) => (
-              <div key={index} className="mt-6 flex items-center gap-6">
-                <div className="bg-brand rounded-sm flex justify-center items-center flex-col h-16 w-16">
-                  <contact.icon className="h-8 w-8 stroke-white" />
-                </div>
+          <div className="mt-8 space-y-5">
+            {contact_details.map((contact) => (
+              <div key={contact.text} className="flex items-center gap-5">
+                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand text-white">
+                  <contact.icon className="h-6 w-6 stroke-white" />
+                </span>
                 <div>
-                  <p className="text-sm md:text-base font-bold mb-4">
+                  <p className="text-sm font-semibold text-body-gray">
                     {contact.title}
                   </p>
-                  <p className="text-sm md:text-base font-medium">
-                    {contact.text}
-                  </p>
+                  <p className="font-medium text-monochrome">{contact.text}</p>
                 </div>
               </div>
             ))}
           </div>
         </motion.div>
-      </div>
+        <motion.div
+          variants={fadeUp}
+          initial={initial}
+          whileInView="visible"
+          viewport={viewport}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="flex-1"
+        >
+          <div className="card p-8">
+            <ContactUsForm />
+          </div>
+        </motion.div>
+      </section>
     </div>
   );
 };

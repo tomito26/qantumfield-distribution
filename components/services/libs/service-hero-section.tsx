@@ -1,84 +1,55 @@
 "use client";
-import React, { useRef } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useAnimation, useInView, motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion, type Variants } from "motion/react";
+import { service_meta } from "@/lib/constants";
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
 
 const ServiceHeroSection = () => {
   const shouldReduceMotion = useReducedMotion();
-  const motionInitial = shouldReduceMotion ? "visible" : "hidden";
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-  const controls = useAnimation();
+  const initial = shouldReduceMotion ? "visible" : "hidden";
   const pathname = usePathname();
+  const meta = service_meta[pathname];
 
-  React.useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [inView, controls]);
+  if (!meta) return null;
+
   return (
-    <div className="h-[500px] w-full relative">
+    <section className="relative flex h-[400px] w-full items-center overflow-hidden md:h-[480px]">
       <Image
-        src={
-          pathname === "/asset-recovery-and-disposal"
-            ? "/assets/gettyimages-494832555-scaled.webp"
-            : pathname === "/waste-disposal"
-            ? "/assets/USE-105-garbage-dump-truck-1.jpg"
-            : pathname === "/environmental-consulting"
-            ? "/assets/business-partners-discussing-contract-terms.jpg"
-            : pathname === "/recycling-solutions"
-            ? "/assets/UNDP-Jordan-2019-women-recycling-1304_2.jpg"
-            : ""
-        }
-        alt=""
+        src={meta.heroImage}
+        alt={meta.title}
         fill
         priority
-        className="absolute object-cover"
+        className="object-cover"
       />
-      <div
-        ref={ref}
-        className="bg-brand/70 h-full flex items-center w-full z-10 absolute page-x"
+      <div className="absolute inset-0 bg-hero-overlay" />
+      <motion.div
+        variants={fadeUp}
+        initial={initial}
+        animate="visible"
+        transition={{ duration: 0.6 }}
+        className="relative z-10 w-full page-x pt-16"
       >
-        <motion.div
-          variants={{
-            hidden: { opacity: 0, y: 50 },
-            visible: { opacity: 1, y: 0 },
-          }}
-          initial={motionInitial}
-          animate={controls}
-          transition={{ duration: 1.5 }}
-        >
-          <h1 className="md:text-6xl text-3xl font-bold text-white mb-6 ">
-            {pathname === "/asset-recovery-and-disposal"
-              ? "Asset Recovery And Disposal"
-              : pathname === "/waste-disposal"
-              ? "Waste Disposal"
-              : pathname === "/environmental-consulting"
-              ? "Environmental Consulting"
-              : "Recycling Solutions"}
-          </h1>
-          <p className="text-white flex text-base ">
-            <Link
-              href="/"
-              className="text-white hover:text-white/70 text-base"
-            >
-              Home
-            </Link>{" "}
-            <ChevronRight className="h-6 w-6 stroke-white" />
-            {pathname === "/asset-recovery-and-disposal"
-              ? "Asset Recovery And Disposal"
-              : pathname === "/waste-disposal"
-              ? "Waste Disposal"
-              : pathname === "/environmental-consulting"
-              ? "Environmental Consulting"
-              : "Recycling Solutions"}
-          </p>
-        </motion.div>
-      </div>
-    </div>
+        <p className="eyebrow eyebrow-light mb-4">Our Services</p>
+        <h1 className="max-w-3xl font-display text-4xl font-bold tracking-tight text-white md:text-6xl">
+          {meta.title}
+        </h1>
+        <p className="mt-5 flex flex-wrap items-center gap-1 text-white/80">
+          <Link href="/" className="transition-colors hover:text-gold">
+            Home
+          </Link>
+          <ChevronRight className="h-4 w-4 stroke-white/60" />
+          <span className="text-gold">{meta.title}</span>
+        </p>
+      </motion.div>
+    </section>
   );
 };
 

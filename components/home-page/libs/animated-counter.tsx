@@ -1,6 +1,17 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { cn } from "@/lib/utils";
 
-const AnimatedCounter = ({ target, duration }:{target: number,  duration: number}) => {
+const AnimatedCounter = ({
+  target,
+  duration,
+  suffix = "+",
+  className,
+}: {
+  target: number;
+  duration: number;
+  suffix?: string;
+  className?: string;
+}) => {
   const [count, setCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef(null);
@@ -39,8 +50,15 @@ const AnimatedCounter = ({ target, duration }:{target: number,  duration: number
   }, [hasAnimated, animateCounter]);
 
   return (
-    <div className="text-6xl font-bold text-white mb-2" ref={ref}>
-      {count.toLocaleString()}+
+    <div
+      className={cn(
+        "font-display text-4xl md:text-5xl font-bold tracking-tight text-white",
+        className
+      )}
+      ref={ref}
+    >
+      {count.toLocaleString()}
+      <span className="text-gold">{suffix}</span>
     </div>
   );
 };
