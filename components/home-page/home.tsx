@@ -20,6 +20,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import HowToGetOurServices from "../about-page/lib/how-to-get-our-services";
 import AnimatedCounter from "./libs/animated-counter";
+import FaqSection from "./libs/faq-section";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
@@ -420,6 +421,9 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* FAQ */}
+      <FaqSection />
 
       {/* Process */}
       <HowToGetOurServices />
