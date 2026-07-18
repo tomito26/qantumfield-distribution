@@ -12,7 +12,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className=" bg-black/90 px-4 md:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]  py-32 ">
+    <footer className=" bg-black/90 page-x  py-32 ">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mb-20">
         <div className="col-span-4">
           <h2 className="text-2xl font-bold text-white mb-3">
@@ -26,13 +26,13 @@ const Footer = () => {
         </div>
         <div className="col-span-2">
           <h2 className="text-xl font-bold mb-3 text-white">Important Links</h2>
-          <ul>
+          <ul className="space-y-2">
             {links.map(
               (link) =>
                 link.link && (
                   <li key={link.title}>
                     <Link
-                      className="text-base text-white mb-1"
+                      className="text-base text-white/90 hover:text-white hover:underline"
                       href={link.link}
                     >
                       {link.title}
@@ -43,20 +43,23 @@ const Footer = () => {
           </ul>
         </div>
         <div className="col-span-3">
-          <h2 className="text-xl font-bold text-white">Our Services</h2>
-          <ul>
+          <h2 className="text-xl font-bold mb-3 text-white">Our Services</h2>
+          <ul className="space-y-2">
             {links
               .filter((link) => link.subLink && link?.subLink.length > 0)[0]
               .subLink?.map((link, index) => (
                 <li key={index}>
-                  <Link className="text-base text-white mb-1" href={link.link}>
+                  <Link
+                    className="text-base text-white/90 hover:text-white hover:underline"
+                    href={link.link}
+                  >
                     {link.title}
                   </Link>
                 </li>
               ))}
           </ul>
         </div>
-        <div className="col-span-2">
+        <div className="col-span-3">
           <div className="flex items-center gap-3">
             <Phone className="h-6 w-6 stroke-white shrink-0" />
             <div>
@@ -103,7 +106,7 @@ const Footer = () => {
       </div>
       <div className="h-[1px] w-full bg-white mb-6" />
       <p className="text-base text-center text-white">
-        Copyright © 2024 Quantumfield Distribution LTD ® | All rights reserved
+        Copyright © {new Date().getFullYear()} Quantumfield Distribution LTD ® | All rights reserved
       </p>
     </footer>
   );

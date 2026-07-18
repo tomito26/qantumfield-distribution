@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { comments, items, metrics, reasons, services } from "@/lib/constants";
 import { ArrowRight, CircleCheck, Quote } from "lucide-react";
-import { motion, useAnimation, useInView } from "motion/react";
+import { motion, useAnimation, useInView, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -14,6 +14,8 @@ import HowToGetOurServices from "../about-page/lib/how-to-get-our-services";
 import AnimatedCounter from "./libs/animated-counter";
 
 const Home = () => {
+  const shouldReduceMotion = useReducedMotion();
+  const motionInitial = shouldReduceMotion ? "visible" : "hidden";
   const ref = React.useRef(null);
   const aboutRef = React.useRef(null);
   const serviceRef = React.useRef(null);
@@ -46,7 +48,6 @@ const Home = () => {
   }, [isInView, mainControls]);
 
   React.useEffect(() => {
-    console.log("aboutInView:", aboutInView);
     if (aboutInView) {
       aboutControls.start("visible");
     }
@@ -85,18 +86,19 @@ const Home = () => {
       <div ref={ref} className="h-[80vh] w-full relative">
         <Image
           src="/assets/waste-management.jpg"
-          alt="Person collecting garbage"
+          alt=""
           fill
+          priority
           className="absolute object-cover"
         />
-        <div className="bg-[#0C4E1A]/70 h-full flex items-center w-full z-10 absolute px-4 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
+        <div className="bg-gradient-to-r from-brand/90 via-brand/70 to-brand/20 h-full flex items-center w-full z-10 absolute page-x">
           <div>
             <motion.div
               variants={{
                 hidden: { opacity: 0, y: 75 },
                 visible: { opacity: 1, y: 0 },
               }}
-              initial="hidden"
+              initial={motionInitial}
               animate={mainControls}
               transition={{ duration: 0.5, delay: 0.25 }}
             >
@@ -113,7 +115,7 @@ const Home = () => {
                 hidden: { opacity: 0, y: 75 },
                 visible: { opacity: 1, y: 0 },
               }}
-              initial="hidden"
+              initial={motionInitial}
               animate={mainControls}
               transition={{ duration: 0.6, delay: 0.25 }}
               className="flex items-center gap-4 mt-6"
@@ -121,23 +123,27 @@ const Home = () => {
               <Link href="/about">
                 <Button
                   type="button"
-                  className="bg-green-600 text-base font-medium hover:bg-green-600/90 text-white"
+                  size="lg"
+                  className="bg-white text-base font-medium text-brand hover:bg-white/90"
                 >
                   Get Started
                 </Button>
               </Link>
-              <Button
-                type="button"
-                className="bg-transparent text-base font-medium text-white hover:bg-white border-2 hover:text-[#0C4E1A]"
-              >
-                Contact Us
-              </Button>
+              <Link href="/about#contact">
+                <Button
+                  type="button"
+                  size="lg"
+                  className="bg-transparent text-base font-medium text-white hover:bg-white border-2 border-white hover:text-brand"
+                >
+                  Contact Us
+                </Button>
+              </Link>
             </motion.div>
           </div>
         </div>
       </div>
       {/* about us  */}
-      <div className=" px-4 pb-24 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
+      <div className=" pb-24 page-x">
         <div
           className="flex  mt-20 justify-between flex-col md:flex-row items-center gap-6"
           ref={aboutRef}
@@ -147,14 +153,14 @@ const Home = () => {
               hidden: { opacity: 0, x: -50 },
               visible: { opacity: 1, x: 0 },
             }}
-            initial="hidden"
+            initial={motionInitial}
             animate={aboutControls}
             transition={{ duration: 0.5, delay: 0.25 }}
             className="flex-1"
           >
-            <h1 className="text-xs md:text-sm font-bold text-[#0C4E1A] uppercase">
+            <p className="text-xs md:text-sm font-bold text-brand uppercase">
               About Us
-            </h1>
+            </p>
             <h2 className="text-3xl md:text-6xl font-bold text-monochrome my-3">
               Advancing Sustainability in Waste Services
             </h2>
@@ -169,7 +175,7 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 ">
               {items.map((item, index) => (
                 <div className="flex items-center gap-3" key={index}>
-                  <CircleCheck className="h-5 w-5 stroke-[#0C4E1A]" />
+                  <CircleCheck className="h-5 w-5 stroke-brand" />
                   <p>{item}</p>
                 </div>
               ))}
@@ -180,7 +186,7 @@ const Home = () => {
               hidden: { opacity: 0, x: 50 },
               visible: { opacity: 1, x: 0 },
             }}
-            initial="hidden"
+            initial={motionInitial}
             animate={aboutControls}
             transition={{ duration: 0.5, delay: 0.25 }}
             className="md:h-[380px] h-[320px] w-full md:w-[360px] relative md:flex-1 rounded-sm"
@@ -197,26 +203,26 @@ const Home = () => {
       {/* {our services}  */}
       <div
         ref={serviceRef}
-        className="bg-[#f4f4f4] px-4 pt-20 pb-40 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]"
+        className="bg-low-bg py-20 page-x"
       >
-        <motion.h1
+        <motion.p
           variants={{
             hidden: { opacity: 0, y: 50 },
             visible: { opacity: 1, y: 0 },
           }}
-          initial="hidden"
+          initial={motionInitial}
           animate={serviceControls}
           transition={{ duration: 0.8 }}
-          className="text-xs md:text-sm uppercase text-center font-bold text-[#0C4E1A]"
+          className="text-xs md:text-sm uppercase text-center font-bold text-brand"
         >
           Our Services
-        </motion.h1>
+        </motion.p>
         <motion.h2
           variants={{
             hidden: { opacity: 0, y: 50 },
             visible: { opacity: 1, y: 0 },
           }}
-          initial="hidden"
+          initial={motionInitial}
           animate={serviceControls}
           transition={{ duration: 1 }}
           className="md:text-6xl text-3xl font-bold text-center text-monochrome mb-10"
@@ -228,32 +234,35 @@ const Home = () => {
             hidden: { opacity: 0, y: 50 },
             visible: { opacity: 1, y: 0 },
           }}
-          initial="hidden"
+          initial={motionInitial}
           animate={serviceControls}
           transition={{ duration: 1.5 }}
-          className="grid grid-cols-1 md:grid-cols-4 gap-32 md:gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {services.map((service) => (
-            <div key={service.id}>
-              <div className="relative h-[280px] w-full md:w-[260px] 4xl:w-[260px] 5xl:w-[280px]  rounded-md">
+            <div
+              key={service.id}
+              className="group flex flex-col bg-white rounded-md overflow-hidden border-b-4 border-b-brand shadow-lg hover:shadow-xl hover:-translate-y-2 transition"
+            >
+              <div className="relative h-[200px] w-full">
                 <Image
                   src={service.image}
                   alt={service.title}
                   fill
-                  className="absolute object-cover rounded-md"
+                  className="object-cover"
                 />
-                <div className="px-4 py-3 bg-white z-10 absolute border-b-4 border-b-[#0C4E1A]  hover:shadow-xl hover:-translate-y-3 transition shadow-lg  -bottom-24 right-10 md:right-2 h-[200px] w-3/4 md:w-[248px] rounded-tl-md rounded-br-md">
-                  <h2 className="text-base font-bold text-monochrome hover:text-[#0C4E1A] mb-2">
-                    {service.title}
-                  </h2>
-                  <p className="text-base mb-2 ">{service.description}</p>
-                  <Link
-                    href={service.link}
-                    className="flex items-center gap-1  text-base font-medium hover:text-[#0C4E1A]"
-                  >
-                    Learn More <ArrowRight className="h-4 w-4 stroke-tundora" />
-                  </Link>
-                </div>
+              </div>
+              <div className="flex flex-col flex-1 px-4 py-4">
+                <h3 className="text-lg font-bold text-monochrome group-hover:text-brand mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-base mb-4 flex-1">{service.description}</p>
+                <Link
+                  href={service.link}
+                  className="flex items-center gap-1 text-base font-medium hover:text-brand"
+                >
+                  Learn More <ArrowRight className="h-4 w-4 stroke-tundora" />
+                </Link>
               </div>
             </div>
           ))}
@@ -262,14 +271,14 @@ const Home = () => {
       {/* {why choose us}   */}
       <div
         ref={whyChooseusRef}
-        className="px-4 flex flex-col-reverse md:flex-row gap-10 py-20 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]"
+        className="flex flex-col-reverse md:flex-row gap-10 py-20 page-x"
       >
         <motion.div
           variants={{
             hidden: { opacity: 0, x: -50 },
             visible: { opacity: 1, x: 0 },
           }}
-          initial="hidden"
+          initial={motionInitial}
           animate={whychooseusControls}
           transition={{ duration: 0.9 }}
           className="md:w-[490px] w-full md:h-auto h-[360px] md:flex-1 relative"
@@ -286,14 +295,14 @@ const Home = () => {
             hidden: { opacity: 0, x: 50 },
             visible: { opacity: 1, x: 0 },
           }}
-          initial="hidden"
+          initial={motionInitial}
           animate={whychooseusControls}
           transition={{ duration: 0.9 }}
           className="flex-1"
         >
-          <h1 className="text-xs md:text-sm uppercase font-bold text-[#0C4E1A]">
+          <p className="text-xs md:text-sm uppercase font-bold text-brand">
             why choose us
-          </h1>
+          </p>
           <h2 className="md:text-6xl text-3xl font-bold text-monochrome my-2">
             Experience the Difference with Our Services
           </h2>
@@ -320,7 +329,7 @@ const Home = () => {
                   />
                 </div>
                 <div>
-                  <h2 className="text-base font-bold">{reason.title}</h2>
+                  <h3 className="text-base font-bold">{reason.title}</h3>
                   <p>{reason.description}</p>
                 </div>
               </div>
@@ -331,7 +340,7 @@ const Home = () => {
       {/* {Metrics } */}
       <div
         ref={metricRef}
-        className="px-4 bg-[#0C4E1A] flex items-center flex-col md:flex-row justify-evenly gap-10 py-20 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]"
+        className="bg-brand flex items-center flex-col md:flex-row justify-evenly gap-10 py-20 page-x"
       >
         {metrics.map((metric, index) => (
           <motion.div
@@ -339,7 +348,7 @@ const Home = () => {
               hidden: { opacity: 0, y: 50 },
               visible: { opacity: 1, y: 0 },
             }}
-            initial="hidden"
+            initial={motionInitial}
             animate={metricControls}
             transition={{ duration: 0.9 }}
             key={index}
@@ -361,21 +370,21 @@ const Home = () => {
       {/* {what clienst are saying}  */}
       <div
         ref={testimonialRef}
-        className="px-4 bg-[#f4f4f4]  gap-10 py-20 md:px-[40px] lg:px-[60px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]"
+        className="bg-[#f4f4f4]  gap-10 py-20 page-x"
       >
         <motion.div
           variants={{
             hidden: { opacity: 0, y: 75 },
             visible: { opacity: 1, y: 0 },
           }}
-          initial="hidden"
+          initial={motionInitial}
           animate={testimonialControls}
           transition={{ duration: 0.8 }}
           className="mb-8"
         >
-          <h1 className="text-xs md:ext-sm text-[#0C4E1A] text-center font-bold uppercase">
+          <p className="text-xs md:text-sm text-brand text-center font-bold uppercase">
             Testimonials
-          </h1>
+          </p>
           <h2 className="text-3xl md:text-6xl text-monochrome text-center font-bold">
             Happy Clients Feedback
           </h2>
@@ -385,7 +394,7 @@ const Home = () => {
             hidden: { opacity: 0, y: 75 },
             visible: { opacity: 1, y: 0 },
           }}
-          initial="hidden"
+          initial={motionInitial}
           animate={testimonialControls}
           transition={{ duration: 1.5 }}
           className="flex justify-center items-center w-full"
@@ -431,7 +440,7 @@ const Home = () => {
             {comments.map((comment) => (
               <SwiperSlide key={comment.id} className="pb-16 pt-12">
                 <div
-                  className="flex items-center flex-col md:flex-row gap-6 p-6 bg-white border-b-4 h-[430px] md:h-[320px] border-[#0C4E1A] rounded-sm"
+                  className="flex items-center flex-col md:flex-row gap-6 p-6 bg-white border-b-4 h-[430px] md:h-[320px] border-brand rounded-sm"
                   key={comment.id}
                 >
                   <div className="h-[80px] w-[80px] rounded-full relative shrink-0">
@@ -443,12 +452,12 @@ const Home = () => {
                     />
                   </div>
                   <div>
-                    <Quote className="stroke-[#0C4E1A] h-5 w-5 rotate-" />
+                    <Quote className="stroke-brand h-5 w-5" />
                     <p className="text-base mt-2">{comment.comment}</p>
                     <p className="mt-2 text-base text-monochrome font-bold">
                       {comment.client.name}
                     </p>
-                    <p className="text-[#0C4E1A] font-medium mt-2 text-base">
+                    <p className="text-brand font-medium mt-2 text-base">
                       {comment.client.company}
                     </p>
                   </div>
@@ -469,31 +478,33 @@ const Home = () => {
           alt=""
           className="absolute object-cover"
         />
-        <div className="h-full w-full z-10 flex justify-center items-center flex-col  bg-[#0C4E1A]/80 py-24 px-4 md:px-[40px] lg:px-[60px] xl:px-[60px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]">
-          <motion.h1
+        <div className="h-full w-full z-10 flex justify-center items-center flex-col  bg-gradient-to-t from-brand/90 to-brand/60 py-24 page-x">
+          <motion.h2
             variants={{
               hidden: { opacity: 0, y: 75 },
               visible: { opacity: 1, y: 0 },
             }}
-            initial="hidden"
+            initial={motionInitial}
             animate={callToActionControls}
             transition={{ duration: 1.5 }}
             className="md:text-6xl text-3xl text-center text-white font-bold mb-10"
           >
             Ready to Optimize Your Waste Management? Contact Us Now!
-          </motion.h1>
+          </motion.h2>
           <motion.div
             variants={{
               hidden: { opacity: 0, y: 75 },
               visible: { opacity: 1, y: 0 },
             }}
-            initial="hidden"
+            initial={motionInitial}
             animate={callToActionControls}
             transition={{ duration: 1.5 }}
           >
-            <Button className="bg-white text-base  font-medium text-[#0C4E1A] hover:bg-white/80">
-              Contact Us Now
-            </Button>
+            <Link href="/about#contact">
+              <Button className="bg-white text-base  font-medium text-brand hover:bg-white/80">
+                Contact Us Now
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </div>

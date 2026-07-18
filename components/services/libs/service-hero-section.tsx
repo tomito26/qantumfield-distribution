@@ -4,9 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useAnimation, useInView, motion } from "motion/react";
+import { useAnimation, useInView, motion, useReducedMotion } from "motion/react";
 
 const ServiceHeroSection = () => {
+  const shouldReduceMotion = useReducedMotion();
+  const motionInitial = shouldReduceMotion ? "visible" : "hidden";
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
   const controls = useAnimation();
@@ -31,20 +33,21 @@ const ServiceHeroSection = () => {
             ? "/assets/UNDP-Jordan-2019-women-recycling-1304_2.jpg"
             : ""
         }
-        alt="Person collecting garbage"
+        alt=""
         fill
+        priority
         className="absolute object-cover"
       />
       <div
         ref={ref}
-        className="bg-[#0C4E1A]/70 h-full flex items-center w-full z-10 absolute px-4 md:px-[40px] lg:px-[80px] xl:px-[100px] 2xl:px-[160px] 3xl:px-[200px] 4xl:px-[240px] 5xl:px-[320px]"
+        className="bg-brand/70 h-full flex items-center w-full z-10 absolute page-x"
       >
         <motion.div
           variants={{
             hidden: { opacity: 0, y: 50 },
             visible: { opacity: 1, y: 0 },
           }}
-          initial="hidden"
+          initial={motionInitial}
           animate={controls}
           transition={{ duration: 1.5 }}
         >
@@ -52,7 +55,7 @@ const ServiceHeroSection = () => {
             {pathname === "/asset-recovery-and-disposal"
               ? "Asset Recovery And Disposal"
               : pathname === "/waste-disposal"
-              ? " Waste  Disposal"
+              ? "Waste Disposal"
               : pathname === "/environmental-consulting"
               ? "Environmental Consulting"
               : "Recycling Solutions"}
@@ -60,7 +63,7 @@ const ServiceHeroSection = () => {
           <p className="text-white flex text-base ">
             <Link
               href="/"
-              className="text-white hover:text-green-950 text-base"
+              className="text-white hover:text-white/70 text-base"
             >
               Home
             </Link>{" "}
@@ -68,7 +71,7 @@ const ServiceHeroSection = () => {
             {pathname === "/asset-recovery-and-disposal"
               ? "Asset Recovery And Disposal"
               : pathname === "/waste-disposal"
-              ? " Waste  Disposal"
+              ? "Waste Disposal"
               : pathname === "/environmental-consulting"
               ? "Environmental Consulting"
               : "Recycling Solutions"}
