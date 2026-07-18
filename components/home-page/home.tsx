@@ -41,6 +41,7 @@ const Home = () => {
           alt="Waste management operations"
           fill
           priority
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-hero-overlay" />
@@ -116,9 +117,9 @@ const Home = () => {
                 <s.icon className="h-6 w-6" />
               </span>
               <div>
-                <h3 className="font-display text-base font-semibold text-monochrome">
+                <p className="font-display text-base font-semibold text-monochrome">
                   {s.title}
-                </h3>
+                </p>
                 <p className="mt-1 text-sm text-body-gray">{s.description}</p>
               </div>
             </div>
@@ -141,6 +142,7 @@ const Home = () => {
               src="/assets/360_F_631323355_OWXprkpNk7TFl9iwsCwLObMCTaI9KyXY.jpg"
               alt="Waste collection in progress"
               fill
+              sizes="(max-width: 768px) 100vw, 450px"
               className="object-cover"
             />
           </motion.div>
@@ -216,6 +218,7 @@ const Home = () => {
                   src={service.image}
                   alt={service.title}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
@@ -286,6 +289,7 @@ const Home = () => {
               src="/assets/zkATV3F7Snh6pwB2iGJ3tPD9rXGXflm0RdQhIQpa.jpg"
               alt="Our team at work"
               fill
+              sizes="(max-width: 768px) 100vw, 450px"
               className="object-cover"
             />
           </motion.div>
@@ -356,6 +360,7 @@ const Home = () => {
                       src={comment.client.profile_photo_url}
                       alt={comment.client.name}
                       fill
+                      sizes="48px"
                       className="object-cover"
                     />
                   </span>
@@ -380,6 +385,7 @@ const Home = () => {
           src="/assets/The-Benefits-of-Waste-Collection-Services-for-Your-Business-scaled.jpg"
           fill
           alt=""
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-forest/85" />

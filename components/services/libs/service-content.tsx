@@ -44,7 +44,13 @@ const ServiceContent = ({
       </h2>
 
       <div className="relative mt-6 h-[240px] w-full overflow-hidden rounded-2xl shadow-soft md:h-[380px]">
-        <Image src={image} alt={title} fill className="object-cover" />
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 100vw, 66vw"
+          className="object-cover"
+        />
       </div>
 
       <div className="mt-8 space-y-4 text-body-gray">

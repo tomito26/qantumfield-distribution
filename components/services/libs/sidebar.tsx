@@ -34,6 +34,7 @@ const ServiceSidebar = () => {
                     src={service.image}
                     alt=""
                     fill
+                    sizes="20px"
                     className="object-contain"
                   />
                 </span>
