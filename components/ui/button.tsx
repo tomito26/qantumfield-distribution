@@ -13,9 +13,9 @@ const buttonVariants = cva(
         // Primary brand action.
         brand:
           "bg-brand text-white shadow-soft hover:bg-brand-dark hover:shadow-lift",
-        // Warm gold accent — the primary conversion action.
+        // Fresh lime accent — the primary conversion action.
         accent:
-          "bg-gold text-forest font-semibold shadow-soft hover:bg-gold-dark hover:text-white hover:shadow-lift",
+          "bg-leaf text-forest font-semibold shadow-soft hover:bg-leaf-dark hover:text-white hover:shadow-lift",
         // For use on dark/photo hero backgrounds.
         outlineLight:
           "border-2 border-white/80 bg-white/0 text-white hover:bg-white hover:text-brand",

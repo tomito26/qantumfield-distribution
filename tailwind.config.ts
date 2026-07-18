@@ -43,14 +43,16 @@ module.exports = {
         },
         // Light sage canvas for alternating section backgrounds.
         canvas: "#EEF4EC",
-        // Warm gold accent — the single restrained accent that lifts the
-        // palette out of monotone green. Used for eyebrows, CTAs, stats,
-        // underlines. Named `gold` (not `accent`) to avoid clashing with the
-        // shadcn `accent` token used by ui components. Swap DEFAULT to a lime
-        // (#B7F171) for a cooler look.
-        gold: {
-          DEFAULT: "#F4B740",
-          dark: "#B8801A",
+        // Fresh lime accent — the single restrained accent that lifts the
+        // palette out of monotone green (stays in the green family). Used for
+        // eyebrows, CTAs, stats, underlines, hover states. Named `leaf` (not
+        // `accent`, which clashes with the shadcn token; not `lime`, which
+        // would shadow Tailwind's built-in lime scale). Bright DEFAULT is used
+        // on dark surfaces; `dark` (deep olive) is used for small text/rules on
+        // white and for button hover.
+        leaf: {
+          DEFAULT: "#84CC16",
+          dark: "#4D7C0F",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

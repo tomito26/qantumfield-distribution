@@ -115,21 +115,21 @@ body {
   /* Small uppercase kicker above section titles. Replaces the repeated
      `text-xs md:text-sm uppercase font-bold text-brand` snippet. */
   .eyebrow {
-    @apply inline-flex items-center gap-2 text-xs md:text-sm font-semibold uppercase tracking-[0.18em] text-gold-dark;
+    @apply inline-flex items-center gap-2 text-xs md:text-sm font-semibold uppercase tracking-[0.18em] text-leaf-dark;
   }
   .eyebrow::before {
     content: "";
-    @apply h-px w-6 bg-gold-dark/60;
+    @apply h-px w-6 bg-leaf-dark/60;
   }
   .eyebrow--center::before {
     @apply hidden;
   }
   /* Eyebrow for dark / photo backgrounds. */
   .eyebrow-light {
-    @apply text-gold;
+    @apply text-leaf;
   }
   .eyebrow-light::before {
-    @apply bg-gold/70;
+    @apply bg-leaf/70;
   }
 
   /* Display heading scale — replaces the ubiquitous `text-6xl font-bold`. */

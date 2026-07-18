@@ -42,11 +42,11 @@ const ServiceHeroSection = () => {
           {meta.title}
         </h1>
         <p className="mt-5 flex flex-wrap items-center gap-1 text-white/80">
-          <Link href="/" className="transition-colors hover:text-gold">
+          <Link href="/" className="transition-colors hover:text-leaf">
             Home
           </Link>
           <ChevronRight className="h-4 w-4 stroke-white/60" />
-          <span className="text-gold">{meta.title}</span>
+          <span className="text-leaf">{meta.title}</span>
         </p>
       </motion.div>
     </section>

@@ -55,7 +55,7 @@ const Footer = () => {
               href="/"
               className="mb-5 inline-flex items-center gap-2.5 font-display text-xl font-bold text-white"
             >
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gold text-forest">
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-leaf text-forest">
                 <Recycle className="h-5 w-5" />
               </span>
               Quantumfield
@@ -68,7 +68,7 @@ const Footer = () => {
             <div className="flex gap-3">
               {socials.map(({ icon: Icon, href, label }) => (
                 <Link key={label} href={href} aria-label={label}>
-                  <span className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-colors hover:border-gold hover:bg-gold">
+                  <span className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-colors hover:border-leaf hover:bg-leaf">
                     <Icon className="h-4 w-4 stroke-white transition-colors group-hover:stroke-forest" />
                   </span>
                 </Link>
@@ -86,7 +86,7 @@ const Footer = () => {
                   link.link && (
                     <li key={link.title}>
                       <Link
-                        className="text-white/70 transition-colors hover:text-gold"
+                        className="text-white/70 transition-colors hover:text-leaf"
                         href={link.link}
                       >
                         {link.title}
@@ -105,7 +105,7 @@ const Footer = () => {
               {serviceLinks.map((link) => (
                 <li key={link.title}>
                   <Link
-                    className="text-white/70 transition-colors hover:text-gold"
+                    className="text-white/70 transition-colors hover:text-leaf"
                     href={link.link}
                   >
                     {link.title}
@@ -121,17 +121,17 @@ const Footer = () => {
             </h3>
             <ul className="space-y-4">
               <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 shrink-0 stroke-gold" />
+                <Phone className="h-5 w-5 shrink-0 stroke-leaf" />
                 <span className="text-white/80">{contact_details[0].text}</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 shrink-0 stroke-gold" />
+                <Mail className="h-5 w-5 shrink-0 stroke-leaf" />
                 <span className="break-all text-white/80">
                   {contact_details[1].text}
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <MapPin className="h-5 w-5 shrink-0 stroke-gold" />
+                <MapPin className="h-5 w-5 shrink-0 stroke-leaf" />
                 <span className="text-white/80">{contact_details[2].text}</span>
               </li>
             </ul>

@@ -45,11 +45,11 @@ const About = () => {
             About Us
           </h1>
           <p className="mt-4 flex items-center gap-1 text-white/80">
-            <Link href="/" className="transition-colors hover:text-gold">
+            <Link href="/" className="transition-colors hover:text-leaf">
               Home
             </Link>
             <ChevronRight className="h-4 w-4 stroke-white/60" />
-            <span className="text-gold">About</span>
+            <span className="text-leaf">About</span>
           </p>
         </motion.div>
       </section>
@@ -158,7 +158,7 @@ const About = () => {
               key={metric.description}
               className="flex flex-col items-center gap-3 text-center"
             >
-              <metric.icon className="h-10 w-10 stroke-gold" />
+              <metric.icon className="h-10 w-10 stroke-leaf" />
               <AnimatedCounter target={parseInt(metric.title)} duration={1600} />
               <p className="font-medium text-white/80">{metric.description}</p>
             </div>

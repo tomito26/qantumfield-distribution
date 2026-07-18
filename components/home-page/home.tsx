@@ -55,7 +55,7 @@ const Home = () => {
             </p>
             <h1 className="max-w-4xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-white md:text-6xl lg:text-7xl">
               Innovative solutions for a{" "}
-              <span className="text-gold">cleaner planet</span>
+              <span className="text-leaf">cleaner planet</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg text-white/85">
               We deliver waste management, recycling, asset recovery, and
@@ -94,7 +94,7 @@ const Home = () => {
               <div key={metric.description}>
                 <p className="font-display text-3xl font-bold text-white">
                   {metric.title}
-                  <span className="text-gold">{metric.suffix}</span>
+                  <span className="text-leaf">{metric.suffix}</span>
                 </p>
                 <p className="text-sm text-white/70">{metric.description}</p>
               </div>
@@ -345,7 +345,7 @@ const Home = () => {
           {comments.map((comment) => (
             <SwiperSlide key={comment.id} className="h-auto pt-2">
               <figure className="card flex h-full flex-col p-8">
-                <Quote className="h-8 w-8 fill-gold/20 stroke-gold" />
+                <Quote className="h-8 w-8 fill-leaf/20 stroke-leaf" />
                 <blockquote className="mt-4 flex-1 text-body-gray">
                   {comment.comment}
                 </blockquote>

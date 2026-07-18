@@ -58,7 +58,7 @@ const AnimatedCounter = ({
       ref={ref}
     >
       {count.toLocaleString()}
-      <span className="text-gold">{suffix}</span>
+      <span className="text-leaf">{suffix}</span>
     </div>
   );
 };

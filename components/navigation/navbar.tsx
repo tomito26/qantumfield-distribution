@@ -77,7 +77,7 @@ const Navbar = () => {
                 <Link
                   href={link}
                   className={cn(
-                    "relative text-[15px] font-medium text-monochrome transition-colors hover:text-brand after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-gold after:transition-all after:duration-300 hover:after:w-full",
+                    "relative text-[15px] font-medium text-monochrome transition-colors hover:text-brand after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-leaf after:transition-all after:duration-300 hover:after:w-full",
                     pathname === link && "text-brand after:w-full"
                   )}
                 >

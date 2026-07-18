@@ -49,7 +49,7 @@ const ServiceSidebar = () => {
                   className={cn(
                     "h-4 w-4 transition-all",
                     active
-                      ? "stroke-gold opacity-100"
+                      ? "stroke-leaf opacity-100"
                       : "stroke-brand opacity-0 group-hover:translate-x-0.5 group-hover:opacity-100"
                   )}
                 />
@@ -70,7 +70,7 @@ const ServiceSidebar = () => {
             {contact_details.map((contact) => (
               <div key={contact.text} className="flex items-center gap-3">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/10">
-                  <contact.icon className="h-5 w-5 stroke-gold" />
+                  <contact.icon className="h-5 w-5 stroke-leaf" />
                 </span>
                 <p className="text-sm font-medium text-white/90">
                   {contact.text}
