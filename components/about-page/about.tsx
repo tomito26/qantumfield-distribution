@@ -30,6 +30,7 @@ const About = () => {
           alt="About Quantumfield Distribution"
           fill
           priority
+          sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-hero-overlay" />
@@ -98,6 +99,7 @@ const About = () => {
               src="/assets/istockphoto-1410016214-612x612.jpg"
               alt="Waste collection in progress"
               fill
+              sizes="(max-width: 768px) 100vw, 450px"
               className="object-cover"
             />
           </motion.div>

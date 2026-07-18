@@ -8,13 +8,13 @@ const Serviceslayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <div className="overflow-hidden">
+    <main className="overflow-hidden">
       <ServiceHeroSection />
       <div className="flex gap-10 lg:gap-14 section-y page-x">
         <ServiceSidebar />
         <div className="w-full md:w-8/12">{children}</div>
       </div>
-    </div>
+    </main>
   );
 };
 

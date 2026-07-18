@@ -1,4 +1,5 @@
 import { contact_details, links } from "@/lib/constants";
+import { siteConfig } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import {
   ArrowUpRight,
@@ -10,20 +11,39 @@ import {
   Phone,
   Recycle,
   Twitter,
+  type LucideIcon,
 } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-const socials = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "X" },
-];
+// Social icons are matched to the live profile URLs in `siteConfig.sameAs`
+// (single source of truth, also fed to the Organization JSON-LD). Only icons
+// with a real URL render — no dead "#" links ship before profiles exist.
+const socialPlatforms: { icon: LucideIcon; label: string; matches: string[] }[] =
+  [
+    { icon: Facebook, label: "Facebook", matches: ["facebook.com"] },
+    { icon: Instagram, label: "Instagram", matches: ["instagram.com"] },
+    { icon: Linkedin, label: "LinkedIn", matches: ["linkedin.com"] },
+    { icon: Twitter, label: "X", matches: ["twitter.com", "x.com"] },
+  ];
 
 const Footer = () => {
   const serviceLinks =
     links.find((l) => l.subLink && l.subLink.length > 0)?.subLink ?? [];
+
+  const socials = socialPlatforms
+    .map((platform) => ({
+      ...platform,
+      href: siteConfig.sameAs.find((url) =>
+        platform.matches.some((match) => url.includes(match))
+      ),
+    }))
+    .filter((platform): platform is typeof platform & { href: string } =>
+      Boolean(platform.href)
+    );
+
+  const phone = contact_details[0].text;
+  const email = contact_details[1].text;
 
   return (
     <footer className="bg-forest text-white/70">
@@ -65,15 +85,23 @@ const Footer = () => {
               sustainable practices, and waste management solutions delivered to
               international standards.
             </p>
-            <div className="flex gap-3">
-              {socials.map(({ icon: Icon, href, label }) => (
-                <Link key={label} href={href} aria-label={label}>
-                  <span className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-colors hover:border-leaf hover:bg-leaf">
-                    <Icon className="h-4 w-4 stroke-white transition-colors group-hover:stroke-forest" />
-                  </span>
-                </Link>
-              ))}
-            </div>
+            {socials.length > 0 && (
+              <div className="flex gap-3">
+                {socials.map(({ icon: Icon, href, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-colors hover:border-leaf hover:bg-leaf">
+                      <Icon className="h-4 w-4 stroke-white transition-colors group-hover:stroke-forest" />
+                    </span>
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="md:col-span-2">
@@ -122,13 +150,21 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 shrink-0 stroke-leaf" />
-                <span className="text-white/80">{contact_details[0].text}</span>
+                <a
+                  href={`tel:${phone.replace(/\s+/g, "")}`}
+                  className="text-white/80 transition-colors hover:text-leaf"
+                >
+                  {phone}
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 shrink-0 stroke-leaf" />
-                <span className="break-all text-white/80">
-                  {contact_details[1].text}
-                </span>
+                <a
+                  href={`mailto:${email}`}
+                  className="break-all text-white/80 transition-colors hover:text-leaf"
+                >
+                  {email}
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <MapPin className="h-5 w-5 shrink-0 stroke-leaf" />

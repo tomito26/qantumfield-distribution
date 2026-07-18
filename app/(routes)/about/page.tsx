@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const Aboutpage = () => {
   return (
-    <div>
+    <main>
       <JsonLd
         data={breadcrumbSchema([
           { name: "Home", path: "/" },
@@ -21,7 +21,7 @@ const Aboutpage = () => {
         ])}
       />
       <About />
-    </div>
+    </main>
   );
 };
 

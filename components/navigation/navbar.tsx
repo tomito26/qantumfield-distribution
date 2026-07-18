@@ -64,6 +64,7 @@ const Navbar = () => {
             src="/assets/quantumfield-logo.png"
             fill
             alt="Quantumfield Distribution logo"
+            sizes="168px"
             className="object-contain object-left"
             priority
           />
@@ -115,6 +116,7 @@ const Navbar = () => {
                                     src={item.image}
                                     alt=""
                                     fill
+                                    sizes="20px"
                                     className="object-contain"
                                   />
                                 </span>
