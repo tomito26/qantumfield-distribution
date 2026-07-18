@@ -91,7 +91,7 @@ const Home = () => {
           priority
           className="absolute object-cover"
         />
-        <div className="bg-brand/70 h-full flex items-center w-full z-10 absolute page-x">
+        <div className="bg-gradient-to-r from-brand/90 via-brand/70 to-brand/20 h-full flex items-center w-full z-10 absolute page-x">
           <div>
             <motion.div
               variants={{
@@ -123,7 +123,8 @@ const Home = () => {
               <Link href="/about">
                 <Button
                   type="button"
-                  className="bg-brand text-base font-medium hover:bg-brand-dark text-white"
+                  size="lg"
+                  className="bg-white text-base font-medium text-brand hover:bg-white/90"
                 >
                   Get Started
                 </Button>
@@ -131,7 +132,8 @@ const Home = () => {
               <Link href="/about#contact">
                 <Button
                   type="button"
-                  className="bg-transparent text-base font-medium text-white hover:bg-white border-2 hover:text-brand"
+                  size="lg"
+                  className="bg-transparent text-base font-medium text-white hover:bg-white border-2 border-white hover:text-brand"
                 >
                   Contact Us
                 </Button>
@@ -201,7 +203,7 @@ const Home = () => {
       {/* {our services}  */}
       <div
         ref={serviceRef}
-        className="bg-[#f4f4f4] pt-20 pb-40 page-x"
+        className="bg-low-bg py-20 page-x"
       >
         <motion.p
           variants={{
@@ -235,29 +237,32 @@ const Home = () => {
           initial={motionInitial}
           animate={serviceControls}
           transition={{ duration: 1.5 }}
-          className="grid grid-cols-1 md:grid-cols-4 gap-32 md:gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {services.map((service) => (
-            <div key={service.id}>
-              <div className="relative h-[280px] w-full md:w-[260px] 4xl:w-[260px] 5xl:w-[280px]  rounded-md">
+            <div
+              key={service.id}
+              className="group flex flex-col bg-white rounded-md overflow-hidden border-b-4 border-b-brand shadow-lg hover:shadow-xl hover:-translate-y-2 transition"
+            >
+              <div className="relative h-[200px] w-full">
                 <Image
                   src={service.image}
                   alt={service.title}
                   fill
-                  className="absolute object-cover rounded-md"
+                  className="object-cover"
                 />
-                <div className="px-4 py-3 bg-white z-10 absolute border-b-4 border-b-brand  hover:shadow-xl hover:-translate-y-3 transition shadow-lg  -bottom-24 right-10 md:right-2 h-[200px] w-3/4 md:w-[248px] rounded-tl-md rounded-br-md">
-                  <h3 className="text-base font-bold text-monochrome hover:text-brand mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-base mb-2 ">{service.description}</p>
-                  <Link
-                    href={service.link}
-                    className="flex items-center gap-1  text-base font-medium hover:text-brand"
-                  >
-                    Learn More <ArrowRight className="h-4 w-4 stroke-tundora" />
-                  </Link>
-                </div>
+              </div>
+              <div className="flex flex-col flex-1 px-4 py-4">
+                <h3 className="text-lg font-bold text-monochrome group-hover:text-brand mb-2">
+                  {service.title}
+                </h3>
+                <p className="text-base mb-4 flex-1">{service.description}</p>
+                <Link
+                  href={service.link}
+                  className="flex items-center gap-1 text-base font-medium hover:text-brand"
+                >
+                  Learn More <ArrowRight className="h-4 w-4 stroke-tundora" />
+                </Link>
               </div>
             </div>
           ))}
@@ -473,7 +478,7 @@ const Home = () => {
           alt=""
           className="absolute object-cover"
         />
-        <div className="h-full w-full z-10 flex justify-center items-center flex-col  bg-brand/80 py-24 page-x">
+        <div className="h-full w-full z-10 flex justify-center items-center flex-col  bg-gradient-to-t from-brand/90 to-brand/60 py-24 page-x">
           <motion.h2
             variants={{
               hidden: { opacity: 0, y: 75 },
