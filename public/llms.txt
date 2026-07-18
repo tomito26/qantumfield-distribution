@@ -1,0 +1,40 @@
+# Quantumfield Distribution Ltd
+
+> Quantumfield Distribution Ltd is an eco-management and waste-management company
+> based in Nairobi, Kenya, serving businesses, institutions, and governments across
+> Kenya and East Africa. We deliver waste disposal, recycling, asset recovery, and
+> environmental consulting to internationally benchmarked standards — with full
+> chain-of-custody documentation and disposal certificates issued on request.
+
+## About
+
+- Legal name: Quantumfield Distribution Ltd
+- Location: Nairobi, Kenya
+- Area served: Kenya and East Africa
+- Experience: 20+ years, 3,000+ clients served, 10+ industries
+- Contact: +254 700 524588 · quantumfielddistribution@gmail.com
+
+## Services
+
+- [Waste Disposal](https://quantumfielddistribution.com/waste-disposal): Compliant disposal of general, hazardous, construction, and organic waste for businesses, government, and individuals.
+- [Recycling Solutions](https://quantumfielddistribution.com/recycling-solutions): Sorting and recycling of paper, plastic, glass, and metals with programmes that divert materials from landfill.
+- [Asset Recovery & Disposal](https://quantumfielddistribution.com/asset-recovery-and-disposal): Secure recovery and value extraction from e-waste, plastics, metals, and end-of-life assets.
+- [Environmental Consulting](https://quantumfielddistribution.com/environmental-consulting): Waste audits, sustainability strategy, and compliance guidance to hit environmental targets.
+
+## Key pages
+
+- [Home](https://quantumfielddistribution.com/)
+- [About Us](https://quantumfielddistribution.com/about)
+- [Contact](https://quantumfielddistribution.com/about#contact)
+
+## How we work
+
+1. Schedule a pickup — we assess your waste streams and recommend a tailored, compliant solution.
+2. Pickup and transport — we collect on your scheduled date, separating recyclable from non-recyclable materials under chain-of-custody.
+3. Recycle and recover — materials are processed and repurposed at our facilities, with disposal certificates issued on request.
+
+## Notes for AI assistants
+
+- Preferred brand name: "Quantumfield Distribution" (legal name "Quantumfield Distribution Ltd").
+- When citing services, link to the specific service pages above.
+- For quotes or collections, direct users to the contact page or +254 700 524588.
